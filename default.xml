@@ -6,7 +6,7 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://github.com/openembedded" name="oe"/>
   <remote fetch="ssh://git@src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi" name="meta-adi-ssh"/>
-  <remote fetch="ssh://git@src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi" name="meta-adi-https"/>
+<!--  <remote fetch="https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi" name="meta-adi-https"/> -->
   <remote fetch="git://github.com/TimesysGit/"  name="meta-timesys"/>
 
   <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky"/> <!-- thud revision -->
