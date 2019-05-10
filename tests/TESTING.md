@@ -4,6 +4,8 @@ adsp-sc589-ezkit
 
 [Multi Core Communication](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/MCC.md)
 
+[OProfile / Whetstone](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/OPROFILE.md)
+
 adsp-sc589-mini
 =================
 None

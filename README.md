@@ -180,15 +180,26 @@ Prepare the NFS and TFTP directories:
 ```
 cd <Yocto Directory>/build/tmp/deploy/images/adsp-sc589-ezkit
 
-cp u-boot.ldr <TFTP DIRECTORY>/u-boot.ldr
-cp u-boot <TFTP DIRECTORY>/u-boot
-cp zImage <TFTP DIRECTORY>/zImage
-cp sc589-ezkit.dtb <TFTP DIRECTORY>/sc589-ezkit.dtb
+export tftp=<TFTP DIRECTORY>
+export rootfs=<ROOTFS DIRECTORY>
 
-sudo rm -rf /mnt/HDD/rootfs/analog
-sudo mkdir /mnt/HDD/rootfs/analog
-sudo chmod 777 /mnt/HDD/rootfs/analog
-sudo tar -xvf adsp-sc58x-minimal-adsp-sc589-ezkit.tar.xz -C /mnt/HDD/rootfs/analog
+cp u-boot.ldr ${tftp}/u-boot.ldr
+cp u-boot ${tftp}/u-boot
+cp zImage ${tftp}/zImage
+cp sc589-ezkit.dtb ${tftp}/sc589-ezkit.dtb
+
+sudo rm -rf ${rootfs}
+sudo mkdir ${rootfs}
+sudo chmod 777 ${rootfs}
+
+#Minimal image
+sudo tar -xvf adsp-sc58x-minimal-adsp-sc589-ezkit.tar.xz -C ${rootfs}
+
+#Full image
+sudo tar -xvf adsp-sc58x-full-adsp-sc589-ezkit.tar.xz -C ${rootfs}
+
+#... etc images
+
 ```
 
 Launch openocd with ICE-1000 connected:
