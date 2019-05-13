@@ -19,7 +19,7 @@ Can bus driver
 
 Clock control ( PLL,CCLK,SCLK)
 
-CPU Freq control
+[CPU Frequency Control](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/CPUFREQ.md)
 
 crc check in cryto framework
 
