@@ -122,6 +122,9 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
 
+#Add this to allow mpv (mplayer port) to build
+LICENSE_FLAGS_WHITELIST="commercial"
+
 TCMODE = "external"
 
 #Modify path as necessary
@@ -167,6 +170,9 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
+
+#Add this to allow mpv (mplayer port) to build
+LICENSE_FLAGS_WHITELIST="commercial"
 ```
 
 # V. Building

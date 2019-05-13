@@ -71,7 +71,7 @@ wireless network driver USB dongle
 
 LTP tests(WT/WB), (p2), (slob/slab)
 
-mplayer
+[MPlayer](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/MPLAYER.md) 
 
 [NFS File System](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/NFS_FILESYSTEM.md) 
 
