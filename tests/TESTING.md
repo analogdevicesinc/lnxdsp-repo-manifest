@@ -73,7 +73,7 @@ LTP tests(WT/WB), (p2), (slob/slab)
 
 mplayer
 
-NFS fs test 
+[NFS File System](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/NFS_FILESYSTEM.md) 
 
 [OProfile / Whetstone](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/OPROFILE.md)
 
