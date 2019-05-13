@@ -6,6 +6,8 @@ adsp-sc589-ezkit
 
 [OProfile / Whetstone](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/OPROFILE.md)
 
+[Busybox FTPD](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/BUSYBOX_FTPD.md)
+
 adsp-sc589-mini
 =================
 None
