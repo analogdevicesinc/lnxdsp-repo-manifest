@@ -119,6 +119,9 @@ BB_DISKMON_DIRS ??= "\
 #Add this line below if using a version 2 board that requires the ethernet modification
 ANALOG_DEVICES_VERSION2_ETHERNET="1"
 
+#Add this line to enable ADI watchdog from U-boot
+ANALOG_DEVICES_WATCHDOG="1"
+
 TCMODE = "external"
 
 #Modify path as necessary
@@ -162,6 +165,8 @@ BB_DISKMON_DIRS ??= "\
 #Add this line below if using a version 2 board that requires the ethernet modification
 ANALOG_DEVICES_VERSION2_ETHERNET="1"
 
+#Add this line to enable ADI watchdog from U-boot
+ANALOG_DEVICES_WATCHDOG="1"
 ```
 
 # V. Building
@@ -215,6 +220,8 @@ arm-none-eabi-gdb u-boot-sc589-ezkit
 
 Load u-boot through GDB
 ```
+(gdb) target remote :3333
+
 (gdb) load init-sc589-ezkit.elf
           Loading section .text, size 0x580 lma 0x20080000
           Start address 0x20080024, load size 1408

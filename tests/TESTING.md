@@ -8,6 +8,8 @@ adsp-sc589-ezkit
 
 [Busybox FTPD](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/BUSYBOX_FTPD.md)
 
+[Watchdog](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/WATCHDOG.md)
+
 adsp-sc589-mini
 =================
 None
