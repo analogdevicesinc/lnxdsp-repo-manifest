@@ -21,7 +21,7 @@ Clock control ( PLL,CCLK,SCLK)
 
 [CPU Frequency Control](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/CPUFREQ.md)
 
-crc check in cryto framework
+[CRC Check Using Crypto Framework](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/HMAC-CRC.md)
 
 dma copy
 
