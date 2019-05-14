@@ -87,6 +87,8 @@ BBLAYERS ?= " \
   ${BSPDIR}/sources/poky/meta-poky \
   ${BSPDIR}/sources/poky/meta-yocto-bsp \
   ${BSPDIR}/sources/meta-openembedded/meta-oe \
+  ${BSPDIR}/sources/meta-openembedded/meta-python \  
+  ${BSPDIR}/sources/meta-openembedded/meta-networking \
   ${BSPDIR}/sources/meta-adi/meta-adi-adsp-sc5xx \
   ${BSPDIR}/sources/meta-adi/meta-adi-external-toolchain \
   ${BSPDIR}/sources/meta-timesys \
@@ -122,8 +124,8 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
 
-#Add this to allow mpv (mplayer port) to build
-LICENSE_FLAGS_WHITELIST="commercial"
+#Add this to allow mpv (mplayer port), netperf to build
+LICENSE_FLAGS_WHITELIST = "commercial non-commercial"
 
 TCMODE = "external"
 
@@ -171,8 +173,8 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
 
-#Add this to allow mpv (mplayer port) to build
-LICENSE_FLAGS_WHITELIST="commercial"
+#Add this to allow mpv (mplayer port), netperf to build
+LICENSE_FLAGS_WHITELIST = "commercial non-commercial"
 ```
 
 # V. Building
