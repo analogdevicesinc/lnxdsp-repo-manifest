@@ -3,9 +3,9 @@ adsp-sc589-ezkit
 
 [Boot Log](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/BOOTLOG.md)
 
-AD1979 audio in driver
+[AD1979 Audio In Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/AD1979.md)
 
-AD1962 audio out driver
+[AD1962 Audio Out Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/AD1962.md)
 
 ADV7842 video decoder driver
 
