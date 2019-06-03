@@ -24,7 +24,7 @@ Testing Status
 |[DMA Copy](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/DMA_COPY.md)|✗|-|-|-|Failed
 |[10/100 Ethernet](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/ETHERNET.md)|✓|-|-|-|Pass
 |[Generic GPIO driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/GENERIC_GPIO.md)|✓|-|-|-|Pass
-|gptimer module|-|-|-|-|Untested
+|[GPTimer Module](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/GPTIMER.md)|✓|-|-|-|Pass
 |I2C soft switch through gpio|-|-|-|-|Untested
 |ieee 1588 ptp|-|-|-|-|Untested
 |L2 alloc|-|-|-|-|Untested
