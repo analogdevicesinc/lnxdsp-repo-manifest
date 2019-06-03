@@ -18,7 +18,7 @@ Testing Status
 |ADV7511 video hd encoder driver|-|-|-|-|Untested
 |Can bus driver|-|-|-|-|Untested
 |[MCAPI framework - Multi Core Communication](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/MCC.md)|✓|-|-|-|Pass
-|Clock control ( PLL,CCLK,SCLK)|-|-|-|-|Untested
+|[Clock control (PLL,CCLK,SCLK)](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/CLKCTL.md)|✓|-|-|-|Pass
 |[CPU Frequency Control](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/CPUFREQ.md)|✓|-|-|-|Pass
 |[CRC Check Using Crypto Framework](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/HMAC-CRC.md)|✓|-|-|-|Pass
 |[DMA Copy](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/DMA_COPY.md)|✗|-|-|-|Failed
