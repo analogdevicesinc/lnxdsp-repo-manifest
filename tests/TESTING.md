@@ -23,7 +23,7 @@ Clock control ( PLL,CCLK,SCLK)
 
 [CRC Check Using Crypto Framework](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/HMAC-CRC.md)
 
-dma copy
+[DMA Copy](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/DMA_COPY.md)
 
 [10/100 Ethernet](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/ETHERNET.md)
 
