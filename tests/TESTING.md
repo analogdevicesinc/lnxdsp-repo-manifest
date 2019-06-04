@@ -25,7 +25,7 @@ Testing Status
 |[10/100 Ethernet](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/ETHERNET.md)|✓|-|-|-|Pass
 |[Generic GPIO driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/GENERIC_GPIO.md)|✓|-|-|-|Pass
 |[GPTimer Module](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/GPTIMER.md)|✓|-|-|-|Pass
-|I2C soft switch through gpio|-|-|-|-|Untested
+|[I2C Soft Switch Expander](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/I2CEXPANDER.md)|✓|-|-|-|Pass
 |[IEEE 1588 PTP](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PTP.md)|✓|-|-|-|Pass, but did not check master/slave with two boards
 |L2 alloc|-|-|-|-|Untested
 |link port|-|-|-|-|Untested
