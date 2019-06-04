@@ -3,12 +3,9 @@
 
 #### This throws copy offset errors for every test at the moment:
 
-Make sure to uncomment the following in linux-adi_4.16.bb
+Must set following in conf/local.conf
 ```
-#If running DMA tests, then include the following patch as well (this disables CONFIG_ICC and enables CONFIG_ARCH_SRAM_ALLOC):
-#SRC_URI += " \
-#	file://Remove-CONFIG_ICC-and-use-CONFIG_ARCH_SRAM_ALLOC-for.patch \
-#"
+ANALOG_DEVICES_SRAM_ALLOC="1"
 ```
 
 Run the test module:

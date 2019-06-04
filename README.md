@@ -124,6 +124,9 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
 
+#If running tests which use sram_alloc(), then include the following patch as well (this disables CONFIG_ICC and enables CONFIG_ARCH_SRAM_ALLOC)
+ANALOG_DEVICES_SRAM_ALLOC="1"
+
 #Add this to allow mpv (mplayer port), netperf to build
 LICENSE_FLAGS_WHITELIST = "commercial non-commercial"
 
@@ -172,6 +175,9 @@ ANALOG_DEVICES_VERSION2_ETHERNET="1"
 
 #Add this line to enable ADI watchdog from U-boot
 ANALOG_DEVICES_WATCHDOG="1"
+
+#If running tests which use sram_alloc(), then include the following patch as well (this disables CONFIG_ICC and enables CONFIG_ARCH_SRAM_ALLOC)
+ANALOG_DEVICES_SRAM_ALLOC="1"
 
 #Add this to allow mpv (mplayer port), netperf to build
 LICENSE_FLAGS_WHITELIST = "commercial non-commercial"
