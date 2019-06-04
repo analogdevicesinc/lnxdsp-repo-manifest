@@ -37,7 +37,7 @@ Testing Status
 |Real Time Clock|-|-|-|-|Untested
 |Serial NOR Flash MTD driver(dma)|-|-|-|-|Untested
 |[SDIO MMC Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/SDIOMMC.md)|✓|-|-|-|Pass
-|timer|-|-|-|-|Untested
+|[Timer](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/TIMER.md)|✓|-|-|-|Pass
 |TFT LCD nl8048 driver|-|-|-|-|Untested
 |touchscreen over SPI|-|-|-|-|Untested
 |UART serial core driver|-|-|-|-|Untested
