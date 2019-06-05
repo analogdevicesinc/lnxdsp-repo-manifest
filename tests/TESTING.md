@@ -31,7 +31,7 @@ Testing Status
 |[Link Port](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/LINKPORT.md)|✗|-|-|-|Test failed, may not have correct cable to loopback
 |[PCIE RC Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_RC.md)|✗|-|-|-|Failed
 |[PCIE EP Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_EP.md)|✗|-|-|-|Failed
-|pincontrol driver|-|-|-|-|Untested
+|[Pin Control Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PINCTRL.md)|✓|-|-|-|Pass
 |Pound(funcload)|-|-|-|-|Untested
 |RAM fs test|-|-|-|-|Untested
 |Real Time Clock|-|-|-|-|Untested
