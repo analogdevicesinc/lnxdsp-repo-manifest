@@ -29,8 +29,8 @@ Testing Status
 |[IEEE 1588 PTP](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PTP.md)|✓|-|-|-|Pass, but did not check master/slave with two boards
 |[L2 alloc](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/L2ALLOC.md)|✗|-|-|-|Unsure if outputs make sense
 |[Link Port](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/LINKPORT.md)|✗|-|-|-|Test failed, may not have correct cable to loopback
-|pcie RC driver|-|-|-|-|Untested
-|pcie EP driver|-|-|-|-|Untested
+|[PCIE RC Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_RC.md)|✗|-|-|-|Failed
+|[PCIE EP Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_EP.md)|✗|-|-|-|Failed
 |pincontrol driver|-|-|-|-|Untested
 |Pound(funcload)|-|-|-|-|Untested
 |RAM fs test|-|-|-|-|Untested
