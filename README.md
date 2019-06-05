@@ -4,7 +4,7 @@
 From a suitable Linux distribution, install Yocto prerequisites:
 ```
 sudo apt-get update
-sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
+sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm u-boot-tools
 ```
 
 Set up SSH access to Timesys servers ( from [here](https://src.timesys.com/help/ssh/README#generating-a-new-ssh-key-pair)):

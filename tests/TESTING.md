@@ -33,7 +33,7 @@ Testing Status
 |[PCIE EP Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_EP.md)|✗|-|-|-|Failed
 |[Pin Control Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PINCTRL.md)|✓|-|-|-|Pass
 |Pound(funcload)|-|-|-|-|Untested
-|RAM fs test|-|-|-|-|Untested
+|[RAM FS Test](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/RAMDISK.md)|✓|-|-|-|Pass
 |Real Time Clock|-|-|-|-|Untested
 |Serial NOR Flash MTD driver(dma)|-|-|-|-|Untested
 |[SDIO MMC Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/SDIOMMC.md)|✓|-|-|-|Pass
