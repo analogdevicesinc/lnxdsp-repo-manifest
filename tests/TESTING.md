@@ -32,7 +32,7 @@ Testing Status
 |[PCIE RC Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_RC.md)|✗|-|-|-|Failed
 |[PCIE EP Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PCIE_EP.md)|✗|-|-|-|Failed
 |[Pin Control Driver](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/PINCTRL.md)|✓|-|-|-|Pass
-|Pound(funcload)|-|-|-|-|Untested
+|[Pound / Funk Load](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/POUND.md)|✓|-|-|-|Pass
 |[RAM FS Test](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/RAMDISK.md)|✓|-|-|-|Pass
 |[Real Time Clock](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/adsp-sc589-ezkit/RTC.md)|✓|-|-|-|Pass
 |Serial NOR Flash MTD driver(dma)|-|-|-|-|Untested
