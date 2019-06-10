@@ -40,7 +40,7 @@ Testing Status
 |Serial NOR Flash MTD Driver|[✗](./adsp-sc589-ezkit/NOR.md)|-|-|-|Failed
 |SDIO MMC Driver|[✓](./adsp-sc589-ezkit/SDIOMMC.md)|Do not test|-|-|Pass
 |Timer|[✓](./adsp-sc589-ezkit/TIMER.md)|-|-|-|Pass
-|TFT LCD nl8048 driver|-|-|Do not test|Do not test|Untested
+|TFT LCD NL8048 Driver|[✗](./adsp-sc589-ezkit/TFTLCD.md)|-|Do not test|Do not test|Failed
 |touchscreen over SPI|-|-|Do not test|Do not test|Untested
 |UART serial core driver|-|-|-|-|Untested
 |USB Tests|-|-|-|-|Untested
