@@ -41,7 +41,7 @@ Testing Status
 |SDIO MMC Driver|[✓](./adsp-sc589-ezkit/SDIOMMC.md)|Do not test|-|-|Pass
 |Timer|[✓](./adsp-sc589-ezkit/TIMER.md)|-|-|-|Pass
 |TFT LCD NL8048 Driver|[✗](./adsp-sc589-ezkit/TFTLCD.md)|-|Do not test|Do not test|Failed
-|touchscreen over SPI|-|-|Do not test|Do not test|Untested
+|SPI Touchscreen|[✗](./adsp-sc589-ezkit/TOUCH.md)|-|Do not test|Do not test|Failed
 |UART serial core driver|-|-|-|-|Untested
 |USB Tests|-|-|-|-|Untested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
