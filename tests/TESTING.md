@@ -45,7 +45,7 @@ Testing Status
 |UART/Serial Driver|[✓](./adsp-sc589-ezkit/UART.md)|-|-|-|Pass, but may need more exhaustive testing
 |USB Tests|-|-|-|-|Untested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
-|wireless network driver USB dongle|-|-|-|-|Untested
+|R8712U Wireless via USB|[✗](./adsp-sc589-ezkit/WIRELESS.md)|-|-|-|Fail, do not have R8712U USB dongle
 |LTP tests(WT/WB), (p2), (slob/slab)|-|-|-|-|Untested
 |MPlayer|[✗](./adsp-sc589-ezkit/MPLAYER.md)|-|Do not test|Do not test|No LCD hardware to test
 |NFS File System|[✓](./adsp-sc589-ezkit/NFS_FILESYSTEM.md)|-|-|-|Pass
