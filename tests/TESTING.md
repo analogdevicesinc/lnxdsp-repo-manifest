@@ -42,7 +42,7 @@ Testing Status
 |Timer|[✓](./adsp-sc589-ezkit/TIMER.md)|-|-|-|Pass
 |TFT LCD NL8048 Driver|[✗](./adsp-sc589-ezkit/TFTLCD.md)|-|Do not test|Do not test|Failed
 |SPI Touchscreen|[✗](./adsp-sc589-ezkit/TOUCH.md)|-|Do not test|Do not test|Failed
-|UART serial core driver|-|-|-|-|Untested
+|UART/Serial Driver|[✓](./adsp-sc589-ezkit/UART.md)|-|-|-|Pass, but may need more exhaustive testing
 |USB Tests|-|-|-|-|Untested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
 |wireless network driver USB dongle|-|-|-|-|Untested
