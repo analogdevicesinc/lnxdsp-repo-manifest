@@ -43,7 +43,19 @@ Testing Status
 |TFT LCD NL8048 Driver|[✗](./adsp-sc589-ezkit/TFTLCD.md)|-|Do not test|Do not test|Failed
 |SPI Touchscreen|[✗](./adsp-sc589-ezkit/TOUCH.md)|-|Do not test|Do not test|Failed
 |UART/Serial Driver|[✓](./adsp-sc589-ezkit/UART.md)|-|-|-|Pass, but may need more exhaustive testing
-|USB Tests|-|-|-|-|Untested
+|USB0: Host|-|-|-|-|Untested
+|USB0: Device (Gadget Ethernet)|-|-|-|-|Untested
+|USB0: Device (Gadget FS)|-|-|-|Do not test|Untested
+|USB0: Device (Gadget Audio)|-|-|-|Do not test|Untested
+|USB0: Device (Gadget Serial)|-|-|-|-|Untested
+|USB0: Device (Gadget Storage)|-|-|-|-|Untested
+|USB0: Device (Gadget Zero)|-|-|-|-|Untested
+|USB1: Device (Gadget Storage)|-|Do not test|Do not test|Do not test|Untested
+|USB1: Device (Gadget Zero)|-|Do not test|Do not test|Do not test|Untested
+|USB0: OTG Test|-|-|-|-|Untested
+|USB Host Hotplug Test|-|-|-|-|Untested
+|USB Device Hotplug Test|-|-|-|-|Untested
+|USB2: OTG/host/device mode|-|Do not test|Do not test|-|Untested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
 |R8712U Wireless via USB|[✗](./adsp-sc589-ezkit/WIRELESS.md)|-|-|-|Fail, do not have R8712U USB dongle
 |LTP tests(WT/WB), (p2), (slob/slab)|-|-|-|-|Untested
