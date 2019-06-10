@@ -48,7 +48,7 @@ Testing Status
 |USB0: Device (Gadget FS)|-|-|-|Do not test|Untested
 |USB0: Device (Gadget Audio)|-|-|-|Do not test|Untested
 |USB0: Device (Gadget Serial)|[✓](./adsp-sc589-ezkit/USB0,GADGETSERIAL.md)|-|-|-|Pass
-|USB0: Device (Gadget Storage)|-|-|-|-|Untested
+|USB0: Device (Gadget Storage)|[✓](./adsp-sc589-ezkit/USB0,GADGETSTORAGE.md)|-|-|-|Pass
 |USB0: Device (Gadget Zero)|-|-|-|-|Untested
 |USB1: Device (Gadget Storage)|-|Do not test|Do not test|Do not test|Untested
 |USB1: Device (Gadget Zero)|-|Do not test|Do not test|Do not test|Untested
