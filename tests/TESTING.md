@@ -13,9 +13,9 @@ Testing Status
 |Boot Log|[✓](./adsp-sc589-ezkit/BOOTLOG.md)|-|-|-|Pass|
 |AD1979 Audio In Driver|[✗](./adsp-sc589-ezkit/AD1979.md)|-|-|Do not test|No hardware to test with
 |AD1962 Audio Out Driver|[✗](./adsp-sc589-ezkit/AD1962.md)|-|-|Do not test|No audio output heard
-|ADV7842 video decoder driver|-|Do not test|-|Do not test|Untested
-|ADV7343 video sd encoder driver|-|Do not test|-|Do not test|Untested
-|ADV7511 video hd encoder driver|-|Do not test|-|Do not test|Untested
+|ADV7842 Video Decoder Driver|[✗](./adsp-sc589-ezkit/ADV7842.md)|Do not test|-|Do not test|No hardware to test with, "Unable to register sub device"
+|ADV7343 Video SD Encoder Driver|[✗](./adsp-sc589-ezkit/ADV7343.md)|Do not test|-|Do not test|No hardware to test with, "Unable to register sub device"
+|ADV7511 Video HD Encoder Driver|[✗](./adsp-sc589-ezkit/ADV7511.md)|Do not test|-|Do not test|No hardware to test with, "Unable to register sub device"
 |Can bus driver|-|-|-|Do not test|Untested
 |MCAPI framework - Multi Core Communication|[✓](./adsp-sc589-ezkit/MCC.md)|-|-|-|Pass
 |Clock control (PLL,CCLK,SCLK)|[✓](./adsp-sc589-ezkit/CLKCTL.md)|-|-|-|Pass
