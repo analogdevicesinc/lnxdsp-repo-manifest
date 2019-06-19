@@ -43,19 +43,19 @@ Testing Status
 |TFT LCD NL8048 Driver|[✗](./adsp-sc589-ezkit/TFTLCD.md)|-|Do not test|Do not test|Failed
 |SPI Touchscreen|[✗](./adsp-sc589-ezkit/TOUCH.md)|-|Do not test|Do not test|Failed
 |UART/Serial Driver|[✓](./adsp-sc589-ezkit/UART.md)|-|-|-|Pass, but may need more exhaustive testing
-|USB0: Host|-|-|-|-|Untested
+|USB0: Host|[✗](./adsp-sc589-ezkit/USB0,HOST.md)|-|-|-|Works, but must first start as a device for some reason
 |USB0: Device (Gadget Ethernet)|[✓](./adsp-sc589-ezkit/USB0,GADGETETH.md)|-|-|-|Untested
 |USB0: Device (Gadget FS)|[✗](./adsp-sc589-ezkit/USB0,GADGETFS.md)|-|-|Do not test|Failed, "Connection timed out"
 |USB0: Device (Gadget Audio)|[✓](./adsp-sc589-ezkit/USB0,GADGETAUDIO.md)|-|-|Do not test|Pass
 |USB0: Device (Gadget Serial)|[✓](./adsp-sc589-ezkit/USB0,GADGETSERIAL.md)|-|-|-|Pass
 |USB0: Device (Gadget Storage)|[✓](./adsp-sc589-ezkit/USB0,GADGETSTORAGE.md)|-|-|-|Pass
 |USB0: Device (Gadget Zero)|[✓](./adsp-sc589-ezkit/USB0,GADGETZERO.md)|-|-|-|Pass
-|USB1: Device (Gadget Storage)|-|Do not test|Do not test|Do not test|Untested
-|USB1: Device (Gadget Zero)|-|Do not test|Do not test|Do not test|Untested
-|USB0: OTG Test|-|-|-|-|Untested
-|USB Host Hotplug Test|-|-|-|-|Untested
-|USB Device Hotplug Test|-|-|-|-|Untested
-|USB2: OTG/host/device mode|-|Do not test|Do not test|-|Untested
+|USB1: Device (Gadget Storage)|[✗](./adsp-sc589-ezkit/USB1,GADGETSTORAGE.md)|Do not test|Do not test|Do not test|Failed, only USB0 is being instantiated
+|USB1: Device (Gadget Zero)|[✗](./adsp-sc589-ezkit/USB1,GADGETZERO.md)|Do not test|Do not test|Do not test|Failed, only USB0 is being instantiated
+|USB0: OTG Test|✓|-|-|-|Able to get port to work as host or device, see oddity under USB0: Host test though!
+|USB Host Hotplug Test|✓|-|-|-|Pass, can plug/replug device
+|USB Device Hotplug Test|✓|-|-|-|Pass can plug/replug cable from host
+|USB2: OTG/host/device mode|✗|Do not test|Do not test|-|Do not see a third USB port on board, not sure how this is supposed to be tested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
 |R8712U Wireless via USB|[✗](./adsp-sc589-ezkit/WIRELESS.md)|-|-|-|Fail, do not have R8712U USB dongle
 |LTP tests(WT/WB), (p2), (slob/slab)|-|-|-|-|Untested
