@@ -44,12 +44,12 @@ Testing Status
 |SPI Touchscreen|[✗](./adsp-sc589-ezkit/TOUCH.md)|-|Do not test|Do not test|Failed
 |UART/Serial Driver|[✓](./adsp-sc589-ezkit/UART.md)|-|-|-|Pass, but may need more exhaustive testing
 |USB0: Host|-|-|-|-|Untested
-|USB0: Device (Gadget Ethernet)|-|-|-|-|Untested
-|USB0: Device (Gadget FS)|-|-|-|Do not test|Untested
-|USB0: Device (Gadget Audio)|-|-|-|Do not test|Untested
+|USB0: Device (Gadget Ethernet)|[✓](./adsp-sc589-ezkit/USB0,GADGETETH.md)|-|-|-|Untested
+|USB0: Device (Gadget FS)|[✗](./adsp-sc589-ezkit/USB0,GADGETFS.md)|-|-|Do not test|Failed, "Connection timed out"
+|USB0: Device (Gadget Audio)|[✓](./adsp-sc589-ezkit/USB0,GADGETAUDIO.md)|-|-|Do not test|Pass
 |USB0: Device (Gadget Serial)|[✓](./adsp-sc589-ezkit/USB0,GADGETSERIAL.md)|-|-|-|Pass
 |USB0: Device (Gadget Storage)|[✓](./adsp-sc589-ezkit/USB0,GADGETSTORAGE.md)|-|-|-|Pass
-|USB0: Device (Gadget Zero)|-|-|-|-|Untested
+|USB0: Device (Gadget Zero)|[✓](./adsp-sc589-ezkit/USB0,GADGETZERO.md)|-|-|-|Pass
 |USB1: Device (Gadget Storage)|-|Do not test|Do not test|Do not test|Untested
 |USB1: Device (Gadget Zero)|-|Do not test|Do not test|Do not test|Untested
 |USB0: OTG Test|-|-|-|-|Untested
