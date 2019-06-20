@@ -58,7 +58,7 @@ Testing Status
 |USB2: OTG/host/device mode|✗|Do not test|Do not test|-|Do not see a third USB port on board, not sure how this is supposed to be tested
 |Watchdog|[✓](./adsp-sc589-ezkit/WATCHDOG.md)|-|-|-|Pass|
 |R8712U Wireless via USB|[✗](./adsp-sc589-ezkit/WIRELESS.md)|-|-|-|Fail, do not have R8712U USB dongle
-|LTP tests(WT/WB), (p2), (slob/slab)|-|-|-|-|Untested
+|LTP tests|[?](./adsp-sc589-ezkit/LTP.md)|-|-|-|LTP runs, did not change any allocator/etc types in kernel config, some test cases fail
 |MPlayer|[✗](./adsp-sc589-ezkit/MPLAYER.md)|-|Do not test|Do not test|No LCD hardware to test
 |NFS File System|[✓](./adsp-sc589-ezkit/NFS_FILESYSTEM.md)|-|-|-|Pass
 |OProfile / Whetstone|[✓](./adsp-sc589-ezkit/OPROFILE.md)|-|-|-|Pass
