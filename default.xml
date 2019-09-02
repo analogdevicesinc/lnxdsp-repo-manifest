@@ -6,14 +6,13 @@
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://bitbucket.analog.com/scm/dte-ap/" name="meta-adi-ssh"/>
-  <remote fetch="https://bitbucket.analog.com/scm/dte-ap/"  name="yocto-build"/>
-<!--  <remote fetch="https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/" name="meta-adi-https"/> -->
-  <remote fetch="https://bitbucket.analog.com/scm/dte-ap/"  name="meta-timesys"/>
+  <remote fetch="https://bitbucket.analog.com/scm/dte-ap/" name="yocto-setup-environment"/>
 
   <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky"/> <!-- thud revision -->
   <project remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- thud revision -->
-  <project name="meta-adi" path="sources/meta-adi" remote="meta-adi-ssh" revision="master"/>
-  <project name="meta-timesys" path="sources/meta-timesys" remote="meta-timesys" revision="8a0d9405dd3083926ced6be92fc8d940c0052490"/> <!-- thud revision -->
-  <project name="yocto-build" path="build/" remote="yocto-build" revision="adsp-sc589-ezkit"/> <!-- thud revision -->
+  <project remote="meta-adi-ssh" revision="e881a9fb7677586debe1377fee9e6c9d6616997a" name="meta-adi" path="sources/meta-adi"/>
+  <project remote="yocto-setup-environment" revision="7e3543a56bbe8e92150bb68d81f02c4fd9adc201" name="yocto-setup-environment" path="sources">
+	  <linkfile dest="setup-environment" src="setup-environment"/>
+  </project>>
 
 </manifest>
