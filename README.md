@@ -70,10 +70,25 @@ repo sync
 # IV. Configuring Layers
 -----------------
 ```
-source sources/poky/oe-init-build-env build
+source setup-environment -m adsp-sc589-ezkit
 ```
 
-Set conf/bblayers.conf to the following. The meta-adi-external-toolchain line can be omitted if not using external toolchains:
+Here is usage of setup-environment:
+
+```
+   #To create a new Yocto build directory, the order can't be changed, -m firstly -b secondly:
+    $ source setup-environment -m adsp-sc589-ezkit -b build
+   #To create a new Yocto build directory, the build dir is /home/test/workspace/timesys/yocto/<machine> by default if there is no -b <build-dir provided>:
+    $ source setup-environment -m adsp-sc589-ezkit
+   #To use an existing Yocto build directory:
+    $ source setup-environment -b build
+   #To get the help information
+    $ source setup-environment -h
+   #Reuse existing 'build' folder.
+    $ source $PROGNAME
+``` 
+
+It will set conf/bblayers.conf to following. The meta-adi-external-toolchain line can be omitted if not using external toolchains:
 
 ```
 # POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
