@@ -1,0 +1,1307 @@
+test@test-OptiPlex-3020:~$ minicom
+
+
+Welcome to minicom 2.7
+
+OPTIONS: I18n 
+Compiled on Nov 15 2018, 20:18:47.
+Port /dev/ttyUSB0, 14:30:02
+
+Press CTRL-A Z for help on special keys
+
+
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 07 2019 - 03:40:01)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450z
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial                                                                   
+other init                                                                      
+Net:   dwmac.3100c000                                                           
+Hit any key to stop autoboot:  0                                                
+sc # print                                                                      
+addip=set bootargs ${bootargs} ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}f
+autoload=no                                                                     
+baudrate=57600                                                                  
+bootargs=root=/dev/mtdblock2 rw rootfstype=jffs2 clkin_hz=(25000000) earlyprintM
+bootcmd=run ramboot                                                             
+bootdelay=5                                                                     
+dtbaddr=0xC4000000                                                              
+dtbfile=sc589-ezkit.dtb                                                         
+ethact=dwmac.3100c000                                                           
+ethaddr=02:80:ad:20:31:e8                                                       
+gatewayip=192.168.0.1                                                           
+hostname="sc58x"                                                                
+initramaddr=0xC5000000                                                          
+initramfile=ramdisk.cpio.xz.u-boot                                              
+ipaddr=192.168.0.15                                                             
+loadaddr=0xC2000000                                                             
+loads_echo=1                                                                    
+nc=set ncip ${serverip};set stdin nc;set stdout nc;set stderr nc                
+netmask=255.255.255.0                                                           
+nfsargs=set bootargs root=/dev/nfs rw nfsroot=${serverip}:${rootpath},tcp,nfsveM
+nfsboot=tftp ${loadaddr} ${nfsfile};tftp ${dtbaddr} ${dtbfile};run nfsargs;run }
+nfsfile=zImage                                                                  
+ramargs=set bootargs root=/dev/ram clkin_hz=(25000000) earlyprintk=serial,uart0M
+ramboot=tftp ${loadaddr} ${ramfile};tftp ${dtbaddr} ${dtbfile};tftp ${initramad}
+ramfile=zImage                                                                  
+rootpath=/romfs                                                                 
+serverip=192.168.0.2                                                            
+stderr=serial                                                                   
+stdin=serial                                                                    
+stdout=serial                                                                   
+ubootfile=u-boot.ldr                                                            
+update=tftp ${loadaddr} ${ubootfile};sf probe 2:1;sf erase 0 0x80000;sf write $}
+                                                                                
+Environment size: 1477/8188 bytes                                               
+sc # run nfsboot                                                                
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 192.168.0.2; our IP address is 192.168.0.15                    
+Filename 'zImage'.                                                              
+Load address: 0xc2000000                                                        
+CTRL-A Z for help | 57600 8N1 | NOR | Minicom 2.7 | VT102 | Offline | ttyUSB0  
+test@test-OptiPlex-3020:~$ minicom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to minicom 2.7
+
+OPTIONS: I18n 
+Compiled on Nov 15 2018, 20:18:47.
+Port /dev/ttyUSB0, 15:52:16
+
+Press CTRL-A Z for help on special keys
+
+
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 07 2019 - 03:40:01)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450z
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial                                                                   
+other init                                                                      
+Net:   dwmac.3100c000                                                           
+Hit any key to stop autoboot:  0                                                
+sc # set serverip 10.100.4.174                                                  
+sc # set ipaddr 10.100.4.52                                                     
+sc # run nfsboot                                                                
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.100.4.174; our IP address is 10.100.4.52                    
+Filename 'zImage'.                                                              
+Load address: 0xc2000000                                                        
+Loading: #################################################################      
+         #################################################################      
+         #################################################################      
+         #################################################################      
+         #####                                                                  
+         4.6 MiB/s                                                              
+done                                                                            
+Bytes transferred = 3886184 (3b4c68 hex)                                        
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.100.4.174; our IP address is 10.100.4.52                    
+Filename 'sc589-ezkit.dtb'.                                                     
+Load address: 0xc4000000                                                        
+Loading: ##                                                                     
+         5.1 MiB/s                                                              
+done                                                                            
+Bytes transferred = 21422 (53ae hex)                                            
+Kernel image @ 0xc2000000 [ 0x000000 - 0x3b4c68 ]                               
+## Flattened Device Tree blob at c4000000                                       
+   Booting using the fdt blob at 0xc4000000                                     
+   Loading Device Tree to cfe56000, end cfe5e3ad ... OK                         
+                                                                                
+Starting kernel ...                                                             
+                                                                                
+Uncompressing Linux... done, booting the kernel.                                
+Booting Linux on physical CPU 0x0                                               
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+CPU: ARMv7 Processor [410fc051] revision 1 (ARMv7), cr=10c53c7d                 
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache        
+OF: fdt: Machine model: ADI sc589-ezkit                                         
+bootconsole [earlycon0] enabled                                                 
+Memory policy: Data cache writeback                                             
+Hit pending asynchronous external abort (FSR=0x00001c06) during first unmask, t.
+CPU: All CPU(s) started in SVC mode.                                            
+dump init clock rate                                                            
+CGU0_PLL 450 MHz                                                                
+CGU0_SYSCLK 225 MHz                                                             
+CGU0_CCLK 450 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+CGU0_DCLK 450 MHz                                                               
+CGU0_OCLK 150 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+random: fast init done                                                          
+Built 1 zonelists, mobility grouping on.  Total pages: 56896                    
+Kernel command line: root=/dev/nfs rw nfsroot=10.100.4.174:/romfs,tcp,nfsvers=3f
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)                 
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)                   
+Memory: 217688K/229376K available (6144K kernel code, 202K rwdata, 1488K rodata)
+Virtual kernel memory layout:                                                   
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)                               
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)                               
+    vmalloc : 0xce800000 - 0xff800000   ( 784 MB)                               
+    lowmem  : 0xc0000000 - 0xce000000   ( 224 MB)                               
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)                               
+      .text : 0x(ptrval) - 0x(ptrval)   (7136 kB)                               
+      .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)                               
+      .data : 0x(ptrval) - 0x(ptrval)   ( 203 kB)                               
+       .bss : 0x(ptrval) - 0x(ptrval)   ( 122 kB)                               
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                 
+clocksource: cs_gptimer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: s
+sched_clock: 32 bits at 112MHz, resolution 8ns, wraps every 19088743419ns       
+Console: colour dummy device 80x30                                              
+Calibrating delay loop... 297.98 BogoMIPS (lpj=595968)                          
+pid_max: default: 32768 minimum: 301                                            
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                     
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                
+CPU: Testing write buffer coherency: ok                                         
+Setting up static identity map for 0xc2100000 - 0xc210003c                      
+devtmpfs: initialized                                                           
+VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1         
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 764s
+futex hash table entries: 256 (order: -1, 3072 bytes)                           
+pinctrl core: initialized pinctrl subsystem                                     
+NET: Registered protocol family 16                                              
+DMA: preallocated 256 KiB pool for atomic coherent allocations                  
+L2C: device tree omits to specify unified cache                                 
+L2C-310 dynamic clock gating enabled, standby mode enabled                      
+L2C-310 cache controller enabled, 8 ways, 256 kB                                
+L2C-310: CACHE_ID 0x410000c9, AUX_CTRL 0x06040000                               
+sc58x_init: registering device resources                                        
+sec init...                                                                     
+enabled                                                                         
+hw-breakpoint: Failed to enable monitor mode on CPU 0.                          
+ADI DMA2 Controller                                                             
+SCSI subsystem initialized                                                      
+usbcore: registered new interface driver usbfs                                  
+usbcore: registered new interface driver hub                                    
+usbcore: registered new device driver usb                                       
+GPIO line 504 (adau1962-rst) hogged as output/low                               
+GPIO line 505 (adau1962-rst) hogged as output/low                               
+i2c-adi-twi 31001400.twi: ADI on-chip I2C TWI Controller, regs_base@512d10bd    
+i2c-adi-twi 31001500.twi: ADI on-chip I2C TWI Controller, regs_base@99e010a9    
+i2c-adi-twi 31001600.twi: ADI on-chip I2C TWI Controller, regs_base@9f188727    
+pps_core: LinuxPPS API ver. 1 registered                                        
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@>
+PTP clock support registered                                                    
+Advanced Linux Sound Architecture Driver Initialized.                           
+clocksource: Switched to clocksource cs_gptimer                                 
+NET: Registered protocol family 2                                               
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)         
+TCP established hash table entries: 2048 (order: 1, 8192 bytes)                 
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)                        
+TCP: Hash tables configured (established 2048 bind 2048)                        
+UDP hash table entries: 256 (order: 0, 4096 bytes)                              
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)                         
+NET: Registered protocol family 1                                               
+RPC: Registered named UNIX socket transport module.                             
+RPC: Registered udp transport module.                                           
+RPC: Registered tcp transport module.                                           
+RPC: Registered tcp NFSv4.1 backchannel transport module.                       
+hw perfevents: no interrupt-affinity property for /pmu, guessing.               
+hw perfevents: enabled with armv7_cortex_a5 PMU driver, 3 counters available    
+Initialise system trusted keyrings                                              
+workingset: timestamp_bits=30 max_order=16 bucket_order=0                       
+NFS: Registering the id_resolver key type                                       
+Key type id_resolver registered                                                 
+Key type id_legacy registered                                                   
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...                    
+Key type asymmetric registered                                                  
+Asymmetric key parser 'x509' registered                                         
+io scheduler noop registered (default)                                          
+io scheduler mq-deadline registered                                             
+io scheduler kyber registered                                                   
+APP_STAT=0,RSCKPHY_STAT=0,LINK_CTRL_STATUS_REG2=10001                           
+sc58x-pcie 310b8000.pcie: Link training failed                                  
+sc58x-pcie 310b8000.pcie: PORT_LINK_DEBUG0 = 8cfd00, PORT_LINK_DEBUG1 = 8200000 
+sc58x-pcie: probe of 310b8000.pcie failed with error -110                       
+ADI serial driver                                                               
+adi-uart4.0: ttySC0 at MMIO 0x31003000 (irq = 21, base_baud = 7031250) is a ADI4
+console [ttySC0] enabled                                                        
+console [ttySC0] enabled                                                        
+bootconsole [earlycon0] disabled                                                
+bootconsole [earlycon0] disabled                                                
+Find dt node linkport0                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 49, status irq: 50                                           
+Find dt node linkport1                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 51, status irq: 52                                           
+loop: module loaded                                                             
+libphy: Fixed MDIO Bus: probed                                                  
+adi-dwmac 3100c000.ethernet: PTP uses main clock                                
+adi-dwmac 3100c000.ethernet: no reset control found                             
+stmmac - user ID: 0x10, Synopsys ID: 0x37                                       
+adi-dwmac 3100c000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100c000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100c000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100c000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100c000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100c000.ethernet: COE Type 2                                         
+adi-dwmac 3100c000.ethernet: TX Checksum insertion supported                    
+adi-dwmac 3100c000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100c000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+pinctrl-adi2 pinctrl-adi2.0: pin PB14 already requested by linkport1; cannot cl0
+pinctrl-adi2 pinctrl-adi2.0: pin-30 (adi-gpio:30) status -22                    
+libphy: stmmac: probed                                                          
+force_sf_dma_mode is ignored if force_thresh_dma_mode is set.                   
+adi-dwmac 3100e000.ethernet: PTP uses main clock                                
+adi-dwmac 3100e000.ethernet: no reset control found                             
+stmmac - user ID: 0x11, Synopsys ID: 0x37                                       
+adi-dwmac 3100e000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100e000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100e000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100e000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100e000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100e000.ethernet: COE Type 2                                         
+adi-dwmac 3100e000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100e000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+libphy: stmmac: probed                                                          
+NS DP83848C 10/100 Mbps PHY stmmac-1:01: attached PHY driver [NS DP83848C 10/10)
+usbcore: registered new interface driver usb-storage                            
+musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver                               
+musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1       
+hub 1-0:1.0: USB hub found                                                      
+hub 1-0:1.0: 1 port detected                                                    
+rtc rtc0: invalid alarm value: 1900-1-1 0:0:0                                   
+rtc-adi2 310c8000.rtc: registered as rtc0                                       
+i2c /dev entries driver                                                         
+adi_wdt: initialized: timeout=20 sec (nowayout=0)                               
+Synopsys Designware Multimedia Card Interface Driver                            
+dwmmc_adi 31010000.mmc: IDMAC supports 32-bit address mode.                     
+dwmmc_adi 31010000.mmc: Using internal DMA controller.                          
+dwmmc_adi 31010000.mmc: Version ID is 270a                                      
+dwmmc_adi 31010000.mmc: DW MMC controller at irq 47,32 bit host data width,1024o
+mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 39682)
+ADI hardware CRC crypto driver                                                  
+adi-hmac-crc 31001200.crc: initialized                                          
+adi-hmac-crc 31001300.crc: initialized                                          
+usbcore: registered new interface driver usbhid                                 
+usbhid: USB HID core driver                                                     
+usbcore: registered new interface driver r8712u                                 
+adau1962 0-0004: busy to request reset-gpio 14                                  
+usb 1-1: new high-speed USB device number 2 using musb-hdrc                     
+01,2a,a0,00                                                                     
+00,00,01,00                                                                     
+06,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,aa,aa,aa                                                                     
+sc5xx-i2s-dai 31002400.i2s: SPORT create success                                
+snd-sc5xx scb:sound: adau1962-hifi <-> 31002400.i2s mapping ok                  
+snd-sc5xx scb:sound: adau1977-hifi <-> 31002400.i2s mapping ok                  
+NET: Registered protocol family 10                                              
+Segment Routing with IPv6                                                       
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver                             
+NET: Registered protocol family 17                                              
+r8712u: register rtl8712_netdev_ops to netdev_ops                               
+usb 1-1: r8712u: USB_SPEED_HIGH with 4 endpoints                                
+Key type dns_resolver registered                                                
+ThumbEE CPU extension supported.                                                
+usb 1-1: r8712u: Boot from EFUSE: Autoload OK                                   
+Loading compiled-in X.509 certificates                                          
+console [netcon0] enabled                                                       
+netconsole: network logging started                                             
+rtc-adi2 310c8000.rtc: setting system clock to 1970-01-01 00:00:01 UTC (1)      
+TI DP83867 stmmac-0:00: attached PHY driver [TI DP83867] (mii_bus:phy_addr=stmm)
+adi-dwmac 3100c000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported   
+adi-dwmac 3100c000.ethernet eth0: registered PTP clock                          
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready                              
+random: crng init done                                                          
+usb 1-1: r8712u: CustomerID = 0x0000                                            
+usb 1-1: r8712u: MAC Address from efuse = f0:7d:68:f1:3d:50                     
+usb 1-1: r8712u: Loading firmware from "rtlwifi/rtl8712u.bin"                   
+usb 1-1: Direct firmware load for rtlwifi/rtl8712u.bin failed with error -2     
+usb 1-1: r8712u: Firmware request failed                                        
+adi-dwmac 3100c000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx  
+IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready                         
+IP-Config: Complete:                                                            
+     device=eth0, hwaddr=02:80:ad:20:31:e8, ipaddr=10.100.4.52, mask=255.255.251
+     host=sc58x, domain=, nis-domain=(none)                                     
+     bootserver=10.100.4.174, rootserver=10.100.4.174, rootpath=                
+IP-Config: Gateway not on directly connected network                            
+cfg80211: Loading compiled-in X.509 certificates for regulatory database        
+cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'                      
+ALSA device list:                                                               
+  #0: sc5xx-asoc-card                                                           
+platform regulatory.0: Direct firmware load for regulatory.db failed with error2
+cfg80211: failed to load regulatory.db                                          
+VFS: Mounted root (nfs filesystem) on device 0:11.                              
+devtmpfs: mounted                                                               
+Freeing unused kernel memory: 1024K                                             
+INIT: version 2.88 booting                                                      
+Starting udev                                                                   
+udevd[731]: starting version 3.2.7                                              
+udevd[731]: specified group 'kvm' unknown                                       
+udevd[732]: starting eudev-3.2.7                                                
+udevd[732]: inotify_init failed: Function not implemented                       
+udevd[732]: error initializing inotify                                          
+hwclock: settimeofday: Invalid argument                                         
+Mon Aug 12 07:47:20 UTC 2019                                                    
+ALSA: Restoring mixer settings...                                               
+No state is present for card sc5xxasoccard                                      
+Found hardware: "sc5xx-asoc-card" "" "" "" ""                                   
+Hardware is initialized using a generic method                                  
+No state is present for card sc5xxasoccard                                      
+INIT: Entering runlevel: 5                                                      
+Configuring network interfaces... RTNETLINK answers: File exists                
+ifup skipped for nfsroot interface eth0                                         
+run-parts: /etc/network/if-pre-up.d/nfsroot: exit status 1                      
+Starting system message bus: dbus.                                              
+Starting watchdog...                                                            
+Starting OpenBSD Secure Shell server: sshd                                      
+done.                                                                           
+Starting rpcbind daemon...done.                                                 
+Starting atd: OK                                                                
+Starting bluetooth: bluetoothd.                                                 
+Starting network benchmark server: netserver.                                   
+Starting syslogd/klogd: done                                                    
+[ ok ]rting Avahi mDNS/DNS-SD Daemon: avahi-daemon                              
+Starting Lighttpd Web Server: lighttpd.                                         
+Starting crond: OK                                                              
+                                                                                
+                                                                                
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                        @@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+                                                                                
+        Analog Devices Yocto Distribution                                       
+                 www.analog.com                                                 
+              www.yoctoproject.org                                              
+                                                                                
+adsp-sc589-ezkit login: root                                                    
+Password:                                                                       
+root@adsp-sc589-ezkit:~# uname -a                                               
+Linux adsp-sc589-ezkit 4.16.0 #1 Mon Aug 12 07:28:01 UTC 2019 armv7l GNU/Linux  
+root@adsp-sc589-ezkit:~# cat /proc/version                                      
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+root@adsp-sc589-ezkit:~# usb 1-1: USB disconnect, device number 2               
+hdrc1-1: new high-speed USB device number 2 using musb-h                        
+-sh: usb: command not found                                                     
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+root@adsp-sc589-ezkit:~# musb-adi 310c1000.usb: VBUS error recovery             
+usb 1-1: new high-speed USB device number 3 using musb-hdrc                     
+r8712u: register rtl8712_netdev_ops to netdev_ops                               
+usb 1-1: r8712u: USB_SPEED_HIGH with 4 endpoints                                
+usb 1-1: r8712u: Boot from EFUSE: Autoload OK                                   
+usb 1-1: r8712u: CustomerID = 0x0000                                            
+usb 1-1: r8712u: MAC Address from efuse = f0:7d:68:f1:3d:50                     
+usb 1-1: r8712u: Loading firmware from "rtlwifi/rtl8712u.bin"                   
+usb 1-1: Direct firmware load for rtlwifi/rtl8712u.bin failed with error -2     
+usb 1-1: r8712u: Firmware request failed                                        
+                                                                                
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found
+root@adsp-sc589-ezkit:~# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+root@adsp-sc589-ezkit:~# lsusb                                               ot@adsp-sc589-e3
+Bus 001 Device 003: ID 2001:3306 D-Link Corp. DWL-G122 Wireless Adapter(rev.F1) [oot@adsp-sc589-ezkit:~# usb 1-3: new high-speed USB device number 2 using musb-hd                
+-sh: usb: command not foundb 1-: new high-speed USB device number 2 using musb-hd
+root@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musb-h
+root@adsp-sc589-ezkit:~# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 07 2019 - 03:40:01)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450z
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+other init
+Net:   dwmac.3100c000
+Hit any key to stop autoboot:  0 
+sc # set serverip 10.100.4.174
+sc # set ipaddr 10.100.4.173
+sc # run nfsboot
+Speed: 1000, full duplex
+Using dwmac.3100c000 device
+TFTP from server 10.100.4.174; our IP address is 10.100.4.173                   
+Filename 'zImage'.                                                              
+Load address: 0xc2000000                                                        
+Loading: #################################################################      
+         #################################################################      
+         #################################################################      
+         #################################################################      
+         #####                                                                  
+         4.8 MiB/s                                                              
+done                                                                            
+Bytes transferred = 3886184 (3b4c68 hex)                                        
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.100.4.174; our IP address is 10.100.4.173                   
+Filename 'sc589-ezkit.dtb'.                                                     
+Load address: 0xc4000000                                                        
+Loading: ##                                                                     
+         4.1 MiB/s                                                              
+done                                                                            
+Bytes transferred = 21422 (53ae hex)                                            
+Kernel image @ 0xc2000000 [ 0x000000 - 0x3b4c68 ]                               
+## Flattened Device Tree blob at c4000000                                       
+   Booting using the fdt blob at 0xc4000000                                     
+   Loading Device Tree to cfe56000, end cfe5e3ad ... OK                         
+                                                                                
+Starting kernel ...                                                             
+                                                                                
+Uncompressing Linux... done, booting the kernel.                                
+Booting Linux on physical CPU 0x0                                               
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+CPU: ARMv7 Processor [410fc051] revision 1 (ARMv7), cr=10c53c7d                 
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache        
+OF: fdt: Machine model: ADI sc589-ezkit                                         
+bootconsole [earlycon0] enabled                                                 
+Memory policy: Data cache writeback                                             
+Hit pending asynchronous external abort (FSR=0x00001c06) during first unmask, t.
+CPU: All CPU(s) started in SVC mode.                                            
+dump init clock rate                                                            
+CGU0_PLL 450 MHz                                                                
+CGU0_SYSCLK 225 MHz                                                             
+CGU0_CCLK 450 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+CGU0_DCLK 450 MHz                                                               
+CGU0_OCLK 150 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+random: fast init done                                                          
+Built 1 zonelists, mobility grouping on.  Total pages: 56896                    
+Kernel command line: root=/dev/nfs rw nfsroot=10.100.4.174:/romfs,tcp,nfsvers=3f
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)                 
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)                   
+Memory: 217688K/229376K available (6144K kernel code, 202K rwdata, 1488K rodata)
+Virtual kernel memory layout:                                                   
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)                               
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)                               
+    vmalloc : 0xce800000 - 0xff800000   ( 784 MB)                               
+    lowmem  : 0xc0000000 - 0xce000000   ( 224 MB)                               
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)                               
+      .text : 0x(ptrval) - 0x(ptrval)   (7136 kB)                               
+      .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)                               
+      .data : 0x(ptrval) - 0x(ptrval)   ( 203 kB)                               
+       .bss : 0x(ptrval) - 0x(ptrval)   ( 122 kB)                               
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                 
+clocksource: cs_gptimer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: s
+sched_clock: 32 bits at 112MHz, resolution 8ns, wraps every 19088743419ns       
+Console: colour dummy device 80x30                                              
+Calibrating delay loop... 297.98 BogoMIPS (lpj=595968)                          
+pid_max: default: 32768 minimum: 301                                            
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                     
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                
+CPU: Testing write buffer coherency: ok                                         
+Setting up static identity map for 0xc2100000 - 0xc210003c                      
+devtmpfs: initialized                                                           
+VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1         
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 764s
+futex hash table entries: 256 (order: -1, 3072 bytes)                           
+pinctrl core: initialized pinctrl subsystem                                     
+NET: Registered protocol family 16                                              
+DMA: preallocated 256 KiB pool for atomic coherent allocations                  
+L2C: device tree omits to specify unified cache                                 
+L2C-310 dynamic clock gating enabled, standby mode enabled                      
+L2C-310 cache controller enabled, 8 ways, 256 kB                                
+L2C-310: CACHE_ID 0x410000c9, AUX_CTRL 0x06040000                               
+sc58x_init: registering device resources                                        
+sec init...                                                                     
+enabled                                                                         
+hw-breakpoint: Failed to enable monitor mode on CPU 0.                          
+ADI DMA2 Controller                                                             
+SCSI subsystem initialized                                                      
+usbcore: registered new interface driver usbfs                                  
+usbcore: registered new interface driver hub                                    
+usbcore: registered new device driver usb                                       
+GPIO line 504 (adau1962-rst) hogged as output/low                               
+GPIO line 505 (adau1962-rst) hogged as output/low                               
+i2c-adi-twi 31001400.twi: ADI on-chip I2C TWI Controller, regs_base@512d10bd    
+i2c-adi-twi 31001500.twi: ADI on-chip I2C TWI Controller, regs_base@99e010a9    
+i2c-adi-twi 31001600.twi: ADI on-chip I2C TWI Controller, regs_base@9f188727    
+pps_core: LinuxPPS API ver. 1 registered                                        
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@>
+PTP clock support registered                                                    
+Advanced Linux Sound Architecture Driver Initialized.                           
+clocksource: Switched to clocksource cs_gptimer                                 
+NET: Registered protocol family 2                                               
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)         
+TCP established hash table entries: 2048 (order: 1, 8192 bytes)                 
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)                        
+TCP: Hash tables configured (established 2048 bind 2048)                        
+UDP hash table entries: 256 (order: 0, 4096 bytes)                              
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)                         
+NET: Registered protocol family 1                                               
+RPC: Registered named UNIX socket transport module.                             
+RPC: Registered udp transport module.                                           
+RPC: Registered tcp transport module.                                           
+RPC: Registered tcp NFSv4.1 backchannel transport module.                       
+hw perfevents: no interrupt-affinity property for /pmu, guessing.               
+hw perfevents: enabled with armv7_cortex_a5 PMU driver, 3 counters available    
+Initialise system trusted keyrings                                              
+workingset: timestamp_bits=30 max_order=16 bucket_order=0                       
+NFS: Registering the id_resolver key type                                       
+Key type id_resolver registered                                                 
+Key type id_legacy registered                                                   
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...                    
+Key type asymmetric registered                                                  
+Asymmetric key parser 'x509' registered                                         
+io scheduler noop registered (default)                                          
+io scheduler mq-deadline registered                                             
+io scheduler kyber registered                                                   
+APP_STAT=0,RSCKPHY_STAT=0,LINK_CTRL_STATUS_REG2=10001                           
+sc58x-pcie 310b8000.pcie: Link training failed                                  
+sc58x-pcie 310b8000.pcie: PORT_LINK_DEBUG0 = ed7c00, PORT_LINK_DEBUG1 = 8200000 
+sc58x-pcie: probe of 310b8000.pcie failed with error -110                       
+ADI serial driver                                                               
+adi-uart4.0: ttySC0 at MMIO 0x31003000 (irq = 21, base_baud = 7031250) is a ADI4
+console [ttySC0] enabled                                                        
+console [ttySC0] enabled                                                        
+bootconsole [earlycon0] disabled                                                
+bootconsole [earlycon0] disabled                                                
+Find dt node linkport0                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 49, status irq: 50                                           
+Find dt node linkport1                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 51, status irq: 52                                           
+loop: module loaded                                                             
+libphy: Fixed MDIO Bus: probed                                                  
+adi-dwmac 3100c000.ethernet: PTP uses main clock                                
+adi-dwmac 3100c000.ethernet: no reset control found                             
+stmmac - user ID: 0x10, Synopsys ID: 0x37                                       
+adi-dwmac 3100c000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100c000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100c000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100c000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100c000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100c000.ethernet: COE Type 2                                         
+adi-dwmac 3100c000.ethernet: TX Checksum insertion supported                    
+adi-dwmac 3100c000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100c000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+pinctrl-adi2 pinctrl-adi2.0: pin PB14 already requested by linkport1; cannot cl0
+pinctrl-adi2 pinctrl-adi2.0: pin-30 (adi-gpio:30) status -22                    
+libphy: stmmac: probed                                                          
+force_sf_dma_mode is ignored if force_thresh_dma_mode is set.                   
+adi-dwmac 3100e000.ethernet: PTP uses main clock                                
+adi-dwmac 3100e000.ethernet: no reset control found                             
+stmmac - user ID: 0x11, Synopsys ID: 0x37                                       
+adi-dwmac 3100e000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100e000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100e000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100e000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100e000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100e000.ethernet: COE Type 2                                         
+adi-dwmac 3100e000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100e000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+libphy: stmmac: probed                                                          
+NS DP83848C 10/100 Mbps PHY stmmac-1:01: attached PHY driver [NS DP83848C 10/10)
+usbcore: registered new interface driver usb-storage                            
+musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver                               
+musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1       
+hub 1-0:1.0: USB hub found                                                      
+hub 1-0:1.0: 1 port detected                                                    
+rtc rtc0: invalid alarm value: 1900-1-12 0:0:0                                  
+rtc-adi2 310c8000.rtc: registered as rtc0                                       
+i2c /dev entries driver                                                         
+adi_wdt: initialized: timeout=20 sec (nowayout=0)                               
+Synopsys Designware Multimedia Card Interface Driver                            
+dwmmc_adi 31010000.mmc: IDMAC supports 32-bit address mode.                     
+dwmmc_adi 31010000.mmc: Using internal DMA controller.                          
+dwmmc_adi 31010000.mmc: Version ID is 270a                                      
+dwmmc_adi 31010000.mmc: DW MMC controller at irq 47,32 bit host data width,1024o
+mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 39682)
+ADI hardware CRC crypto driver                                                  
+adi-hmac-crc 31001200.crc: initialized                                          
+adi-hmac-crc 31001300.crc: initialized                                          
+usbcore: registered new interface driver usbhid                                 
+usbhid: USB HID core driver                                                     
+usbcore: registered new interface driver r8712u                                 
+adau1962 0-0004: busy to request reset-gpio 14                                  
+usb 1-1: new high-speed USB device number 2 using musb-hdrc                     
+01,2a,a0,00                                                                     
+00,00,01,00                                                                     
+06,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,aa,aa,aa                                                                     
+sc5xx-i2s-dai 31002400.i2s: SPORT create success                                
+snd-sc5xx scb:sound: adau1962-hifi <-> 31002400.i2s mapping ok                  
+snd-sc5xx scb:sound: adau1977-hifi <-> 31002400.i2s mapping ok                  
+NET: Registered protocol family 10                                              
+Segment Routing with IPv6                                                       
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver                             
+NET: Registered protocol family 17                                              
+r8712u: register rtl8712_netdev_ops to netdev_ops                               
+usb 1-1: r8712u: USB_SPEED_HIGH with 4 endpoints                                
+Key type dns_resolver registered                                                
+ThumbEE CPU extension supported.                                                
+usb 1-1: r8712u: Boot from EFUSE: Autoload OK                                   
+Loading compiled-in X.509 certificates                                          
+console [netcon0] enabled                                                       
+netconsole: network logging started                                             
+rtc-adi2 310c8000.rtc: setting system clock to 2019-08-12 07:57:50 UTC (1565596)
+TI DP83867 stmmac-0:00: attached PHY driver [TI DP83867] (mii_bus:phy_addr=stmm)
+adi-dwmac 3100c000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported   
+adi-dwmac 3100c000.ethernet eth0: registered PTP clock                          
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready                              
+random: crng init done                                                          
+usb 1-1: r8712u: CustomerID = 0x0000                                            
+usb 1-1: r8712u: MAC Address from efuse = f0:7d:68:f1:3d:50                     
+usb 1-1: r8712u: Loading firmware from "rtlwifi/rtl8712u.bin"                   
+usb 1-1: Direct firmware load for rtlwifi/rtl8712u.bin failed with error -2     
+usb 1-1: r8712u: Firmware request failed                                        
+adi-dwmac 3100c000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx  
+IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready                         
+IP-Config: Complete:                                                            
+     device=eth0, hwaddr=02:80:ad:20:31:e8, ipaddr=10.100.4.173, mask=255.255.21
+     host=sc58x, domain=, nis-domain=(none)                                     
+     bootserver=10.100.4.174, rootserver=10.100.4.174, rootpath=                
+IP-Config: Gateway not on directly connected network                            
+cfg80211: Loading compiled-in X.509 certificates for regulatory database        
+cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'                      
+ALSA device list:                                                               
+  #0: sc5xx-asoc-card                                                           
+platform regulatory.0: Direct firmware load for regulatory.db failed with error2
+cfg80211: failed to load regulatory.db                                          
+VFS: Mounted root (nfs filesystem) on device 0:11.                              
+devtmpfs: mounted                                                               
+Freeing unused kernel memory: 1024K                                             
+INIT: version 2.88 booting                                                      
+Starting udev                                                                   
+udevd[730]: starting version 3.2.7                                              
+udevd[730]: specified group 'kvm' unknown                                       
+udevd[731]: starting eudev-3.2.7                                                
+udevd[731]: inotify_init failed: Function not implemented                       
+udevd[731]: error initializing inotify                                          
+ALSA: Restoring mixer settings...                                               
+No state is present for card sc5xxasoccard                                      
+Found hardware: "sc5xx-asoc-card" "" "" "" ""                                   
+Hardware is initialized using a generic method                                  
+No state is present for card sc5xxasoccard                                      
+INIT: Entering runlevel: 5                                                      
+Configuring network interfaces... RTNETLINK answers: File exists                
+ifup skipped for nfsroot interface eth0                                         
+run-parts: /etc/network/if-pre-up.d/nfsroot: exit status 1                      
+Starting system message bus: dbus.                                              
+Starting watchdog...                                                            
+Starting OpenBSD Secure Shell server: sshd                                      
+done.                                                                           
+Starting rpcbind daemon...done.                                                 
+Starting atd: OK                                                                
+Starting bluetooth: bluetoothd.                                                 
+Starting network benchmark server: netserver.                                   
+Starting syslogd/klogd: done                                                    
+[ ok ]rting Avahi mDNS/DNS-SD Daemon: avahi-daemon                              
+Starting Lighttpd Web Server: lighttpd.                                         
+Starting crond: OK                                                              
+                                                                                
+                                                                                
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                        @@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+                                                                                
+        Analog Devices Yocto Distribution                                       
+                 www.analog.com                                                 
+              www.yoctoproject.org                                              
+                                                                                
+adsp-sc589-ezkit login: root                                                    
+Password:                                                                       
+root@adsp-sc589-ezkit:~# uname -a                                               
+Linux adsp-sc589-ezkit 4.16.0 #1 Mon Aug 12 07:28:01 UTC 2019 armv7l GNU/Linux  
+root@adsp-sc589-ezkit:~# cat /proc/version                                      
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 002: ID 2001:3306 D-Link Corp. DWL-G122 Wireless Adapter(rev.F1)]
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+root@adsp-sc589-ezkit:~#      
+
+CTRL-A Z for help | 57600 8N1 | NOR | Minicom 2.7 | VT102 | Offline | ttyUSB0  
+test@test-OptiPlex-3020:~$ minicom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Welcome to minicom 2.7
+
+OPTIONS: I18n 
+Compiled on Nov 15 2018, 20:18:47.
+Port /dev/ttyUSB0, 16:06:16
+
+Press CTRL-A Z for help on special keys
+
+
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 07 2019 - 03:40:01)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450z
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial                                                                   
+other init                                                                      
+Net:   dwmac.3100c000                                                           
+Hit any key to stop autoboot:  0                                                
+sc # set serverip 10.99.24.69                                                   
+sc # dhcp                                                                       
+Speed: 1000, full duplex                                                        
+BOOTP broadcast 1                                                               
+DHCP client bound to address 10.99.24.91 (11 ms)                                
+sc # run nfsboot                                                                
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.99.24.69; our IP address is 10.99.24.91                     
+Filename 'zImage'.                                                              
+Load address: 0xc2000000                                                        
+Loading: #################################################################      
+         #################################################################      
+         #################################################################      
+         #################################################################      
+         #####                                                                  
+         4.7 MiB/s                                                              
+done                                                                            
+Bytes transferred = 3886184 (3b4c68 hex)                                        
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.99.24.69; our IP address is 10.99.24.91                     
+Filename 'sc589-ezkit.dtb'.                                                     
+Load address: 0xc4000000                                                        
+Loading: ##                                                                     
+         4.1 MiB/s                                                              
+done                                                                            
+Bytes transferred = 21422 (53ae hex)                                            
+Kernel image @ 0xc2000000 [ 0x000000 - 0x3b4c68 ]                               
+## Flattened Device Tree blob at c4000000                                       
+   Booting using the fdt blob at 0xc4000000                                     
+   Loading Device Tree to cfe56000, end cfe5e3ad ... OK                         
+                                                                                
+Starting kernel ...                                                             
+                                                                                
+Uncompressing Linux... done, booting the kernel.                                
+Booting Linux on physical CPU 0x0                                               
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+CPU: ARMv7 Processor [410fc051] revision 1 (ARMv7), cr=10c53c7d                 
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache        
+OF: fdt: Machine model: ADI sc589-ezkit                                         
+bootconsole [earlycon0] enabled                                                 
+Memory policy: Data cache writeback                                             
+Hit pending asynchronous external abort (FSR=0x00001c06) during first unmask, t.
+CPU: All CPU(s) started in SVC mode.                                            
+dump init clock rate                                                            
+CGU0_PLL 450 MHz                                                                
+CGU0_SYSCLK 225 MHz                                                             
+CGU0_CCLK 450 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+CGU0_DCLK 450 MHz                                                               
+CGU0_OCLK 150 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+random: fast init done                                                          
+Built 1 zonelists, mobility grouping on.  Total pages: 56896                    
+Kernel command line: root=/dev/nfs rw nfsroot=10.99.24.69:/romfs,tcp,nfsvers=3 f
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)                 
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)                   
+Memory: 217688K/229376K available (6144K kernel code, 202K rwdata, 1488K rodata)
+Virtual kernel memory layout:                                                   
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)                               
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)                               
+    vmalloc : 0xce800000 - 0xff800000   ( 784 MB)                               
+    lowmem  : 0xc0000000 - 0xce000000   ( 224 MB)                               
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)                               
+      .text : 0x(ptrval) - 0x(ptrval)   (7136 kB)                               
+      .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)                               
+      .data : 0x(ptrval) - 0x(ptrval)   ( 203 kB)                               
+       .bss : 0x(ptrval) - 0x(ptrval)   ( 122 kB)                               
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                 
+clocksource: cs_gptimer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: s
+sched_clock: 32 bits at 112MHz, resolution 8ns, wraps every 19088743419ns       
+Console: colour dummy device 80x30                                              
+Calibrating delay loop... 297.98 BogoMIPS (lpj=595968)                          
+pid_max: default: 32768 minimum: 301                                            
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                     
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                
+CPU: Testing write buffer coherency: ok                                         
+Setting up static identity map for 0xc2100000 - 0xc210003c                      
+devtmpfs: initialized                                                           
+VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1         
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 764s
+futex hash table entries: 256 (order: -1, 3072 bytes)                           
+pinctrl core: initialized pinctrl subsystem                                     
+NET: Registered protocol family 16                                              
+DMA: preallocated 256 KiB pool for atomic coherent allocations                  
+L2C: device tree omits to specify unified cache                                 
+L2C-310 dynamic clock gating enabled, standby mode enabled                      
+L2C-310 cache controller enabled, 8 ways, 256 kB                                
+L2C-310: CACHE_ID 0x410000c9, AUX_CTRL 0x06040000                               
+sc58x_init: registering device resources                                        
+sec init...                                                                     
+enabled                                                                         
+hw-breakpoint: Failed to enable monitor mode on CPU 0.                          
+ADI DMA2 Controller                                                             
+SCSI subsystem initialized                                                      
+usbcore: registered new interface driver usbfs                                  
+usbcore: registered new interface driver hub                                    
+usbcore: registered new device driver usb                                       
+GPIO line 504 (adau1962-rst) hogged as output/low                               
+GPIO line 505 (adau1962-rst) hogged as output/low                               
+i2c-adi-twi 31001400.twi: ADI on-chip I2C TWI Controller, regs_base@512d10bd    
+i2c-adi-twi 31001500.twi: ADI on-chip I2C TWI Controller, regs_base@99e010a9    
+i2c-adi-twi 31001600.twi: ADI on-chip I2C TWI Controller, regs_base@9f188727    
+pps_core: LinuxPPS API ver. 1 registered                                        
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@>
+PTP clock support registered                                                    
+Advanced Linux Sound Architecture Driver Initialized.                           
+clocksource: Switched to clocksource cs_gptimer                                 
+NET: Registered protocol family 2                                               
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)         
+TCP established hash table entries: 2048 (order: 1, 8192 bytes)                 
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)                        
+TCP: Hash tables configured (established 2048 bind 2048)                        
+UDP hash table entries: 256 (order: 0, 4096 bytes)                              
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)                         
+NET: Registered protocol family 1                                               
+RPC: Registered named UNIX socket transport module.                             
+RPC: Registered udp transport module.                                           
+RPC: Registered tcp transport module.                                           
+RPC: Registered tcp NFSv4.1 backchannel transport module.                       
+hw perfevents: no interrupt-affinity property for /pmu, guessing.               
+hw perfevents: enabled with armv7_cortex_a5 PMU driver, 3 counters available    
+Initialise system trusted keyrings                                              
+workingset: timestamp_bits=30 max_order=16 bucket_order=0                       
+NFS: Registering the id_resolver key type                                       
+Key type id_resolver registered                                                 
+Key type id_legacy registered                                                   
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...                    
+Key type asymmetric registered                                                  
+Asymmetric key parser 'x509' registered                                         
+io scheduler noop registered (default)                                          
+io scheduler mq-deadline registered                                             
+io scheduler kyber registered                                                   
+APP_STAT=0,RSCKPHY_STAT=0,LINK_CTRL_STATUS_REG2=10001                           
+sc58x-pcie 310b8000.pcie: Link training failed                                  
+sc58x-pcie 310b8000.pcie: PORT_LINK_DEBUG0 = b67700, PORT_LINK_DEBUG1 = 8200000 
+sc58x-pcie: probe of 310b8000.pcie failed with error -110                       
+ADI serial driver                                                               
+adi-uart4.0: ttySC0 at MMIO 0x31003000 (irq = 21, base_baud = 7031250) is a ADI4
+console [ttySC0] enabled                                                        
+console [ttySC0] enabled                                                        
+bootconsole [earlycon0] disabled                                                
+bootconsole [earlycon0] disabled                                                
+Find dt node linkport0                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 49, status irq: 50                                           
+Find dt node linkport1                                                          
+of parse lp_div: 1                                                              
+of parse data irq: 51, status irq: 52                                           
+loop: module loaded                                                             
+libphy: Fixed MDIO Bus: probed                                                  
+adi-dwmac 3100c000.ethernet: PTP uses main clock                                
+adi-dwmac 3100c000.ethernet: no reset control found                             
+stmmac - user ID: 0x10, Synopsys ID: 0x37                                       
+adi-dwmac 3100c000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100c000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100c000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100c000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100c000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100c000.ethernet: COE Type 2                                         
+adi-dwmac 3100c000.ethernet: TX Checksum insertion supported                    
+adi-dwmac 3100c000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100c000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+pinctrl-adi2 pinctrl-adi2.0: pin PB14 already requested by linkport1; cannot cl0
+pinctrl-adi2 pinctrl-adi2.0: pin-30 (adi-gpio:30) status -22                    
+libphy: stmmac: probed                                                          
+force_sf_dma_mode is ignored if force_thresh_dma_mode is set.                   
+adi-dwmac 3100e000.ethernet: PTP uses main clock                                
+adi-dwmac 3100e000.ethernet: no reset control found                             
+stmmac - user ID: 0x11, Synopsys ID: 0x37                                       
+adi-dwmac 3100e000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100e000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100e000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100e000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100e000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100e000.ethernet: COE Type 2                                         
+adi-dwmac 3100e000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100e000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+libphy: stmmac: probed                                                          
+NS DP83848C 10/100 Mbps PHY stmmac-1:01: attached PHY driver [NS DP83848C 10/10)
+usbcore: registered new interface driver usb-storage                            
+musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver                               
+musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1       
+hub 1-0:1.0: USB hub found                                                      
+hub 1-0:1.0: 1 port detected                                                    
+rtc rtc0: invalid alarm value: 1900-1-12 0:0:0                                  
+rtc-adi2 310c8000.rtc: registered as rtc0                                       
+i2c /dev entries driver                                                         
+adi_wdt: initialized: timeout=20 sec (nowayout=0)                               
+Synopsys Designware Multimedia Card Interface Driver                            
+dwmmc_adi 31010000.mmc: IDMAC supports 32-bit address mode.                     
+dwmmc_adi 31010000.mmc: Using internal DMA controller.                          
+dwmmc_adi 31010000.mmc: Version ID is 270a                                      
+dwmmc_adi 31010000.mmc: DW MMC controller at irq 47,32 bit host data width,1024o
+mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 39682)
+ADI hardware CRC crypto driver                                                  
+adi-hmac-crc 31001200.crc: initialized                                          
+adi-hmac-crc 31001300.crc: initialized                                          
+usbcore: registered new interface driver usbhid                                 
+usbhid: USB HID core driver                                                     
+usbcore: registered new interface driver r8712u                                 
+adau1962 0-0004: busy to request reset-gpio 14                                  
+usb 1-1: new high-speed USB device number 2 using musb-hdrc                     
+01,2a,a0,00                                                                     
+00,00,01,00                                                                     
+06,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,aa,aa,aa                                                                     
+sc5xx-i2s-dai 31002400.i2s: SPORT create success                                
+snd-sc5xx scb:sound: adau1962-hifi <-> 31002400.i2s mapping ok                  
+snd-sc5xx scb:sound: adau1977-hifi <-> 31002400.i2s mapping ok                  
+NET: Registered protocol family 10                                              
+Segment Routing with IPv6                                                       
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver                             
+NET: Registered protocol family 17                                              
+r8712u: register rtl8712_netdev_ops to netdev_ops                               
+usb 1-1: r8712u: USB_SPEED_HIGH with 4 endpoints                                
+Key type dns_resolver registered                                                
+ThumbEE CPU extension supported.                                                
+usb 1-1: r8712u: Boot from EFUSE: Autoload OK                                   
+Loading compiled-in X.509 certificates                                          
+console [netcon0] enabled                                                       
+netconsole: network logging started                                             
+rtc-adi2 310c8000.rtc: setting system clock to 2019-08-12 08:02:51 UTC (1565596)
+TI DP83867 stmmac-0:00: attached PHY driver [TI DP83867] (mii_bus:phy_addr=stmm)
+adi-dwmac 3100c000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported   
+adi-dwmac 3100c000.ethernet eth0: registered PTP clock                          
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready                              
+random: crng init done                                                          
+usb 1-1: r8712u: CustomerID = 0x0000                                            
+usb 1-1: r8712u: MAC Address from efuse = f0:7d:68:f1:3d:50                     
+usb 1-1: r8712u: Loading firmware from "rtlwifi/rtl8712u.bin"                   
+usb 1-1: Direct firmware load for rtlwifi/rtl8712u.bin failed with error -2     
+usb 1-1: r8712u: Firmware request failed                                        
+adi-dwmac 3100c000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx  
+IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready                         
+IP-Config: Complete:                                                            
+     device=eth0, hwaddr=02:80:ad:20:31:e8, ipaddr=10.99.24.91, mask=255.255.251
+     host=sc58x, domain=, nis-domain=(none)                                     
+     bootserver=10.99.24.69, rootserver=10.99.24.69, rootpath=                  
+cfg80211: Loading compiled-in X.509 certificates for regulatory database        
+cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'                      
+ALSA device list:                                                               
+  #0: sc5xx-asoc-card                                                           
+platform regulatory.0: Direct firmware load for regulatory.db failed with error2
+cfg80211: failed to load regulatory.db                                          
+VFS: Mounted root (nfs filesystem) on device 0:11.                              
+devtmpfs: mounted                                                               
+Freeing unused kernel memory: 1024K                                             
+IPv6: eth0: IPv6 duplicate address fe80::80:adff:fe20:31e8 used by 02:80:ad:20:!
+INIT: version 2.88 booting                                                      
+Starting udev                                                                   
+udevd[731]: starting version 3.2.7                                              
+udevd[731]: specified group 'kvm' unknown                                       
+udevd[732]: starting eudev-3.2.7                                                
+udevd[732]: inotify_init failed: Function not implemented                       
+udevd[732]: error initializing inotify                                          
+ALSA: Restoring mixer settings...                                               
+No state is present for card sc5xxasoccard                                      
+Found hardware: "sc5xx-asoc-card" "" "" "" ""                                   
+Hardware is initialized using a generic method                                  
+No state is present for card sc5xxasoccardngs...                                
+No state is present for card sc5xxasoccard                                      
+Found hardware: "sc5xx-asoc-card" "" "" "" ""                                   
+Hardware is initialized using a generic method                                  
+No state is present for card sc5xxasoccard                                      
+INIT: Entering runlevel: 5                                                      
+Configuring network interfaces... RTNETLINK answers: File exists                
+ifup skipped for nfsroot interface eth0                                         
+run-parts: /etc/network/if-pre-up.d/nfsroot: exit status 1                      
+Starting system message bus: dbus.                                              
+Starting watchdog...                                                            
+Starting OpenBSD Secure Shell server: sshd                                      
+done.                                                                           
+Starting rpcbind daemon...done.                                                 
+Starting atd: OK                                                                
+Starting bluetooth: bluetoothd.                                                 
+Starting network benchmark server: netserver.                                   
+Starting syslogd/klogd: done                                                    
+[ ok ]rting Avahi mDNS/DNS-SD Daemon: avahi-daemon                              
+Starting Lighttpd Web Server: lighttpd.                                         
+Starting crond: OK                                                              
+                                                                                
+                                                                                
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                        @@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+                                                                                
+        Analog Devices Yocto Distribution                                       
+                 www.analog.com                                                 
+              www.yoctoproject.org                                              
+                                                                                
+adsp-sc589-ezkit login: root                                                    
+Password:                                                                       
+root@adsp-sc589-ezkit:~# uname -a                                               
+Linux adsp-sc589-ezkit 4.16.0 #1 Mon Aug 12 07:28:01 UTC 2019 armv7l GNU/Linux  
+root@adsp-sc589-ezkit:~# cat /proc/version                                      
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 002: ID 2001:3306 D-Link Corp. DWL-G122 Wireless Adapter(rev.F1)]
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+root@adsp-sc589-ezkit:~# iwlist scanning | grep ESSID                           
+eth0      Interface doesn't support scanning.                                   
+                                                                                
+lo        Interface doesn't support scanning.                                   
+                                                                                
+eth1      Interface doesn't support scanning.                                   
+                                                                                
+sit0      Interface doesn't support scanning.                                   
+                                                                                
+root@adsp-sc589-ezkit:~# ifconfig wlan0 up                                      
+ifconfig: SIOCGIFFLAGS: No such device                                          
+root@adsp-sc589-ezkit:~# r8712u: register rtl8712_netdev_ops to netdev_ops      
+-sh: r8712u:: command not found                                                 
+root@adsp-sc589-ezkit:~# random: nonblocking pool is initialized                
+-sh: random:: command not found                                                 
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+root@adsp-sc589-ezkit:~# modprobe g_serial                                      
+udc-core: couldn't find an available UDC - added [g_serial] to list of pending s
+root@adsp-sc589-ezkit:~# cat /lib/modules/4.16.0-00071-g3b4ae62/modules.dep     
+cat: can't open '/lib/modules/4.16.0-00071-g3b4ae62/modules.dep': No such file y
+root@adsp-sc589-ezkit:~# modprobe  r8712u                                       
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musbh
+-sh: usb: command not found                                                     
+root@adsp-sc589-ezkit:~# lsusb                                                  
+Bus 001 Device 002: ID 2001:3306 D-Link Corp. DWL-G122 Wireless Adapter(rev.F1)]
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub                  
+hdrc@adsp-sc589-ezkit:~# usb 1-1: new high-speed USB device number 2 using musb

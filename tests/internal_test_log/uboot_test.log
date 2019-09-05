@@ -1,0 +1,369 @@
+*******************************************************************************
+Test I2C soft switch
+*****************************************************************************
+sc # i2c probe
+Valid chip addresses: 21 22 40 70
+sc # i2c md 21 12 8
+0012: 00 04 00 04 00 00 00 00    ........
+sc # i2c mw 21 14 a0 4
+sc # i2c md 21 12 8
+0012: a0 a0 a0 a0 00 00 00 00    ........
+sc # 
+===== Recording result: i2c is pass
+
+
+******************************************************************************
+SPI_flash
+****************************************************************************
+
+sc # 
+sc # sf probe 2:1
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+sc # sf read 0xc2000000 0x10000 0x4000
+SF: 16384 bytes @ 0x10000 Read: OK
+sc # 
+SF: 16384 bytes @ 0x10000 Read: OK
+sc # sf read 0xc3000000  0x10000 0x4000
+SF: 16384 bytes @ 0x10000 Read: OK
+sc # cmp.b 0xc2000000 0xc3000000  0x4000
+Total of 16384 byte(s) were the same
+sc # The testing sf address is 0x10001
+Unknown command 'The' - try 'help'
+sc # sf read 0xc2000000 0x10001 0x4000
+SF: 16384 bytes @ 0x10001 Read: OK
+sc # 
+SF: 16384 bytes @ 0x10001 Read: OK
+sc # sf read 0xc3000000  0x10001 0x4000
+SF: 16384 bytes @ 0x10001 Read: OK
+sc #  cmp.b 0xc2000000 0xc3000000  0x4000
+Total of 16384 byte(s) were the same
+sc # sf read 0xc2000000 0x10002 0x4000
+SF: 16384 bytes @ 0x10002 Read: OK
+sc # 
+SF: 16384 bytes @ 0x10002 Read: OK
+sc # sf read 0xc3000000  0x10002 0x4000
+SF: 16384 bytes @ 0x10002 Read: OK
+sc # cmp.b 0xc2000000 0xc3000000  0x4000
+Total of 16384 byte(s) were the same
+sc # read 0xc2000000 0x10003 0x4000
+Unknown command 'read' - try 'help'
+sc # sf read 0xc2000000 0x10003 0x4000
+SF: 16384 bytes @ 0x10003 Read: OK
+sc # 
+SF: 16384 bytes @ 0x10003 Read: OK
+sc # 
+SF: 16384 bytes @ 0x10003 Read: OK
+sc # cmp.b 0xc2000000 0xc3000000  0x4000
+byte at 0xc2000000 (0xcc) != byte at 0xc3000000 (0x40)
+Total of 0 byte(s) were the same
+sc # sf read 0xc2000000 0x10004 0x4000
+SF: 16384 bytes @ 0x10004 Read: OK
+sc # 
+
+
+*******************************************************************************
+
+*******************************************************************************
+
+
+
+
+
+
+
+
+
+********************************************************************************
+nm_test
+********************************************************************************
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 14 2019 - 18:09:47)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450 MHz
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+other init
+Net:   dwmac.3100c000
+Hit any key to stop autoboot:  0 
+sc # mw.l 0xc2000000 1234DEAD 0x1000
+sc # md.w c2003ff0
+c2003ff0: dead 1234 dead 1234 dead 1234 dead 1234    ..4...4...4...4.
+c2004000: 0900 00ae 0800 0007 0800 0087 0800 0047    ..............G.
+c2004010: 0900 00ee 0710 0009 0800 005f 0800 001f    .........._.....
+c2004020: 0900 009e 0714 0063 0800 007f 0800 003f    ......c.......?.
+c2004030: 0900 00de 0712 001b 0800 006f 0800 002f    ..........o.../.
+c2004040: 0900 00be 0800 000f 0800 008f 0800 004f    ..............O.
+c2004050: 0900 00fe 0760 0000 0800 0050 0800 0010    ....`.....P.....
+c2004060: 0814 0073 0712 001f 0800 0070 0800 0030    ..s.......p...0.
+sc # 
+
+
+
+********************************************************************************
+nm test
+********************************************************************************
+
+sc # mw.b c2000200 FF 0x10
+sc # nm.w c2000204
+c2000204: ffff ? got value, now try the command lots of times
+sc # c2000204: 424d ?
+Unknown command 'c2000204:' - try 'help'
+sc # md c2000200
+c2000200: ffffffff ffffffff ffffffff ffffffff    ................
+c2000210: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000220: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000230: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000240: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000250: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000260: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000270: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000280: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000290: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002a0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002b0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002c0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002d0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002e0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20002f0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+sc # 
+c2000300: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000310: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000320: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000330: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000340: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000350: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000360: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000370: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000380: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000390: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003a0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003b0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003c0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003d0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003e0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20003f0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+sc # 
+c2000400: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000410: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000420: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000430: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000440: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000450: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000460: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000470: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000480: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000490: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004a0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004b0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004c0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004d0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004e0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20004f0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+sc # got u-boot prompt
+Unknown command 'got' - try 'help'
+sc # icache off
+sc # dcache off 
+sc # reginfo
+sc # 
+
+
+********************************************************************************
+mm test
+*******************************************************************************
+U-Boot 2015.01 ADI-1.3.0 (Aug 14 2019 - 18:09:47)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450 MHz
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+other init
+Net:   dwmac.3100c000
+Hit any key to stop autoboot:  0 
+sc # mm.w 0xc2000000
+c2000000: dead ? 
+c2000002: 1234 ? 
+c2000004: dead ? 
+c2000006: 1234 ? 
+c2000008: dead ? 
+c200000a: 1234 ? 
+c200000c: dead ? 
+c200000e: 1234 ? 
+c2000010: dead ? 
+c2000012: 1234 ? 
+c2000014: dead ? 
+c2000016: 1234 ? 
+c2000018: dead ? 
+c200001a: 1234 ? 
+c200001c: dead ? 
+c200001e: 1234 ? 
+c2000020: dead ? 
+c2000022: 1234 ? 
+c2000024: dead ? 
+c2000026: 1234 ? 
+c2000028: dead ? 
+c200002a: 1234 ? 
+c200002c: dead ? 
+c200002e: 1234 ? 
+c2000030: dead ? 
+c2000032: 1234 ? 
+c2000034: dead ? 
+c2000036: 1234 ? 
+c2000038: dead ? 
+c200003a: 1234 ? 
+c200003c: dead ? 
+c200003e: 1234 ? 
+c2000040: dead ? sending control-c
+sc # got u-boot prompt
+Unknown command 'got' - try 'help'
+sc # icache off
+sc # dcache off
+sc # reginfo
+sc # checking location c2000030
+Unknown command 'checking' - try 'help'
+sc # md 0xc2000000
+c2000000: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000010: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000020: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000030: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000040: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000050: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000060: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000070: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000080: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c2000090: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000a0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000b0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000c0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000d0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000e0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+c20000f0: 1234dead 1234dead 1234dead 1234dead    ..4...4...4...4.
+sc # got u-boot prompt
+Unknown command 'got' - try 'help'
+sc # icache off
+sc # dcache off
+sc # reginfo
+
+
+
+*******************************************************************************
+mtest
+******************************************************************************
+
+sc # 
+sc # mtest 0xc2000000 c2005120 0xFFFF 200
+Testing c2000000 ... c2005120:
+Pattern FFFF0000  Writing...  Reading...Tested 512 iteration(s) with 0 errors.
+
+
+
+
+********************************************************************************
+cp   RAM-to-RAM, aligned
+*******************************************************************************
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 14 2019 - 18:09:47)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450 MHz
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+other init
+Net:   dwmac.3100c000
+Hit any key to stop autoboot:  0 
+sc # 
+sc # 
+sc # 
+sc # mw.b c200911c 0xFFFFFFFF 4
+sc # md.b c200911c
+c200911c: ff ff ff ff cc 0b 9c 25 4b 95 5e 41 c0 4c 65 fc    .......%K.^A.Le.
+c200912c: fc 61 d7 28 f5 62 96 01 97 65 70 4c b1 6e 31 bf    .a.(.b...epL.n1.
+c200913c: e6 fe 43 da 3c 60 2e cd a3 f4 8d ff 64 2e a1 9f    ..C.<`......d...
+c200914c: ee cb 99 4b a7 aa b9 f4 0b f5 bd 3f 17 79 ac 8e    ...K.......?.y..
+sc #  mw.b c2009420 0xFF 4
+sc # md.b c2009420
+c2009420: ff ff ff ff 1c a5 39 3c 9d e6 e7 b5 8c 2b bf d5    ......9<.....+..
+c2009430: bb 9a 75 71 a5 bd 65 92 fa ae f2 03 79 37 55 0d    ..uq..e.....y7U.
+c2009440: 99 04 d5 a7 ff 9c 27 61 83 35 06 b2 47 dc 8f 80    ......'a.5..G...
+c2009450: 1f 5b 41 df 5c 4d 7b d1 15 ef d3 fa 5e f3 6a e6    .[A.\M{.....^.j.
+sc # cp.b  0xc2002000 0xc2009120 0x00000300
+sc # cmp.b  0xc2002000 0xc2009120 0x00000300
+Total of 768 byte(s) were the same
+sc # We're looking for c200911c: ffffffff
+> <INTERRUPT>
+sc # md.b c200911c
+c200911c: ff ff ff ff 00 f8 fe ff ff f7 fe ff fe f7 fe ff    ................
+c200912c: fd f7 fe ff fc f7 fe ff fb f7 fe ff fa f7 fe ff    ................
+c200913c: f9 f7 fe ff f8 f7 fe ff f7 f7 fe ff f6 f7 fe ff    ................
+c200914c: f5 f7 fe ff f4 f7 fe ff f3 f7 fe ff f2 f7 fe ff    ................
+sc # md.b c2009420
+c2009420: ff ff ff ff 1c a5 39 3c 9d e6 e7 b5 8c 2b bf d5    ......9<.....+..
+c2009430: bb 9a 75 71 a5 bd 65 92 fa ae f2 03 79 37 55 0d    ..uq..e.....y7U.
+c2009440: 99 04 d5 a7 ff 9c 27 61 83 35 06 b2 47 dc 8f 80    ......'a.5..G...
+c2009450: 1f 5b 41 df 5c 4d 7b d1 15 ef d3 fa 5e f3 6a e6    .[A.\M{.....^.j.
+sc # 
+
+
+
+******************************************************************************
+cp   RAM-to-RAM, unaligned
+*******************************************************************************
+
+sc # mw.b c200911d 0xFFFFFFFF 4
+sc # md.b c200911d
+c200911d: ff ff ff ff f8 fe ff ff f7 fe ff fe f7 fe ff fd    ................
+c200912d: f7 fe ff fc f7 fe ff fb f7 fe ff fa f7 fe ff f9    ................
+c200913d: f7 fe ff f8 f7 fe ff f7 f7 fe ff f6 f7 fe ff f5    ................
+c200914d: f7 fe ff f4 f7 fe ff f3 f7 fe ff f2 f7 fe ff f1    ................
+sc # mw.b c2009421 0xFF 4
+sc # md.b c2009421
+c2009421: ff ff ff ff a5 39 3c 9d e6 e7 b5 8c 2b bf d5 bb    .....9<.....+...
+c2009431: 9a 75 71 a5 bd 65 92 fa ae f2 03 79 37 55 0d 99    .uq..e.....y7U..
+c2009441: 04 d5 a7 ff 9c 27 61 83 35 06 b2 47 dc 8f 80 1f    .....'a.5..G....
+c2009451: 5b 41 df 5c 4d 7b d1 15 ef d3 fa 5e f3 6a e6 e0    [A.\M{.....^.j..
+sc # cp.b  0xc2002001 0xc2009121 0x00000300
+sc # cmp.b  0xc2002001 0xc2009121 0x00000300
+Total of 768 byte(s) were the same
+sc # md.b c200911d
+c200911d: ff ff ff ff f8 fe ff ff f7 fe ff fe f7 fe ff fd    ................
+c200912d: f7 fe ff fc f7 fe ff fb f7 fe ff fa f7 fe ff f9    ................
+c200913d: f7 fe ff f8 f7 fe ff f7 f7 fe ff f6 f7 fe ff f5    ................
+c200914d: f7 fe ff f4 f7 fe ff f3 f7 fe ff f2 f7 fe ff f1    ................
+sc # md.b c2009421
+c2009421: ff ff ff ff a5 39 3c 9d e6 e7 b5 8c 2b bf d5 bb    .....9<.....+...
+c2009431: 9a 75 71 a5 bd 65 92 fa ae f2 03 79 37 55 0d 99    .uq..e.....y7U..
+c2009441: 04 d5 a7 ff 9c 27 61 83 35 06 b2 47 dc 8f 80 1f    .....'a.5..G....
+c2009451: 5b 41 df 5c 4d 7b d1 15 ef d3 fa 5e f3 6a e6 e0    [A.\M{.....^.j..
+sc # ===== Recording result: cp RAM-to-RAM, unaligned is pass
+Unknown command '=====' - try 'help'
+sc # Can't doregions to use earlier in testing
+> waiting  uboot prompt
+> <INTERRUPT>
+sc # got u-boot prompt
+Unknown command 'got' - try 'help'
+sc # icache off
+sc # dcache off
+sc # reginfo
+sc # 
+
