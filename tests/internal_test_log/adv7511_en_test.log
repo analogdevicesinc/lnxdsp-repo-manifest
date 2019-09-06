@@ -1,0 +1,423 @@
+test@app-lwl:~$ minicom
+
+Welcome to minicom 2.7.1
+
+OPTIONS: I18n 
+Compiled on Aug 13 2017, 15:25:34.
+Port /dev/ttyUSB0, 23:09:54
+
+Press CTRL-A Z for help on special keys
+
+
+
+U-Boot 2015.01 ADI-1.3.0 (Aug 01 2019 - 10:23:56)
+
+CPU:   ADSP ADSP-SC589-0.1 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 450z
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial                                                                   
+other init                                                                      
+Net:   dwmac.3100c000                                                           
+Hit any key to stop autoboot:  0                                                
+sc # print                                                                      
+addip=set bootargs ${bootargs} ip=${ipaddr}:${serverip}:${gatewayip}:${netmask}f
+autoload=no                                                                     
+baudrate=57600                                                                  
+bootargs=root=/dev/mtdblock2 rw rootfstype=jffs2 clkin_hz=(25000000) earlyprintM
+bootcmd=run ramboot                                                             
+bootdelay=5                                                                     
+dtbaddr=0xC4000000                                                              
+dtbfile=sc589-ezkit.dtb                                                         
+ethact=dwmac.3100c000                                                           
+ethaddr=02:80:ad:20:31:e8                                                       
+gatewayip=192.168.0.1                                                           
+hostname="sc58x"                                                                
+initramaddr=0xC5000000                                                          
+initramfile=ramdisk.cpio.xz.u-boot                                              
+ipaddr=10.100.4.50                                                              
+loadaddr=0xC2000000                                                             
+loads_echo=1                                                                    
+nc=set ncip ${serverip};set stdin nc;set stdout nc;set stderr nc                
+netmask=255.255.255.0                                                           
+nfsargs=set bootargs root=/dev/nfs rw nfsroot=${serverip}:${rootpath},tcp,nfsveM
+nfsboot=tftp ${loadaddr} ${nfsfile};tftp ${dtbaddr} ${dtbfile};run nfsargs;run }
+nfsfile=zImage                                                                  
+ramargs=set bootargs root=/dev/ram clkin_hz=(25000000) earlyprintk=serial,uart0M
+ramboot=tftp ${loadaddr} ${ramfile};tftp ${dtbaddr} ${dtbfile};tftp ${initramad}
+ramfile=zImage                                                                  
+rootpath=/romfs                                                                 
+serverip=10.100.4.174                                                           
+stderr=serial                                                                   
+stdin=serial                                                                    
+stdout=serial                                                                   
+ubootfile=u-boot.ldr                                                            
+update=tftp ${loadaddr} ${ubootfile};sf probe 2:1;sf erase 0 0x80000;sf write $}
+                                                                                
+Environment size: 1477/8188 bytes                                               
+sc # run nfsboot                                                                
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.100.4.174; our IP address is 10.100.4.50                    
+Filename 'zImage'.                                                              
+Load address: 0xc2000000                                                        
+Loading: #################################################################      
+         #################################################################      
+         #################################################################      
+         #################################################################      
+         ################################                                       
+         5.4 MiB/s                                                              
+done                                                                            
+Bytes transferred = 4285352 (4163a8 hex)                                        
+Speed: 1000, full duplex                                                        
+Using dwmac.3100c000 device                                                     
+TFTP from server 10.100.4.174; our IP address is 10.100.4.50                    
+Filename 'sc589-ezkit.dtb'.                                                     
+Load address: 0xc4000000                                                        
+Loading: ##                                                                     
+         4.1 MiB/s                                                              
+done                                                                            
+Bytes transferred = 21518 (540e hex)                                            
+Kernel image @ 0xc2000000 [ 0x000000 - 0x4163a8 ]                               
+## Flattened Device Tree blob at c4000000                                       
+   Booting using the fdt blob at 0xc4000000                                     
+   Loading Device Tree to cfe56000, end cfe5e40d ... OK                         
+                                                                                
+Starting kernel ...                                                             
+                                                                                
+Uncompressing Linux... done, booting the kernel.                                
+Booting Linux on physical CPU 0x0                                               
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+CPU: ARMv7 Processor [410fc051] revision 1 (ARMv7), cr=10c53c7d                 
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache        
+OF: fdt: Machine model: ADI sc589-ezkit                                         
+bootconsole [earlycon0] enabled                                                 
+Memory policy: Data cache writeback                                             
+Hit pending asynchronous external abort (FSR=0x00001c06) during first unmask, t.
+CPU: All CPU(s) started in SVC mode.                                            
+dump init clock rate                                                            
+CGU0_PLL 450 MHz                                                                
+CGU0_SYSCLK 225 MHz                                                             
+CGU0_CCLK 450 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+CGU0_DCLK 450 MHz                                                               
+CGU0_OCLK 150 MHz                                                               
+CGU0_SYS0 112 MHz                                                               
+random: fast init done                                                          
+Built 1 zonelists, mobility grouping on.  Total pages: 56896                    
+Kernel command line: root=/dev/nfs rw nfsroot=10.100.4.174:/romfs,tcp,nfsvers=3f
+Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)                 
+Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)                   
+Memory: 217676K/229376K available (6144K kernel code, 210K rwdata, 1660K rodata)
+Virtual kernel memory layout:                                                   
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)                               
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)                               
+    vmalloc : 0xce800000 - 0xff800000   ( 784 MB)                               
+    lowmem  : 0xc0000000 - 0xce000000   ( 224 MB)                               
+    modules : 0xbf000000 - 0xc0000000   (  16 MB)                               
+      .text : 0x(ptrval) - 0x(ptrval)   (7136 kB)                               
+      .init : 0x(ptrval) - 0x(ptrval)   (1024 kB)                               
+      .data : 0x(ptrval) - 0x(ptrval)   ( 211 kB)                               
+       .bss : 0x(ptrval) - 0x(ptrval)   ( 127 kB)                               
+NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16                                 
+clocksource: cs_gptimer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: s
+sched_clock: 32 bits at 112MHz, resolution 8ns, wraps every 19088743419ns       
+Console: colour dummy device 80x30                                              
+Calibrating delay loop... 297.98 BogoMIPS (lpj=595968)                          
+pid_max: default: 32768 minimum: 301                                            
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)                     
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)                
+CPU: Testing write buffer coherency: ok                                         
+Setting up static identity map for 0xc2100000 - 0xc210003c                      
+devtmpfs: initialized                                                           
+VFP support v0.3: implementor 41 architecture 2 part 30 variant 5 rev 1         
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 764s
+futex hash table entries: 256 (order: -1, 3072 bytes)                           
+pinctrl core: initialized pinctrl subsystem                                     
+NET: Registered protocol family 16                                              
+DMA: preallocated 256 KiB pool for atomic coherent allocations                  
+L2C: device tree omits to specify unified cache                                 
+L2C-310 dynamic clock gating enabled, standby mode enabled                      
+L2C-310 cache controller enabled, 8 ways, 256 kB                                
+L2C-310: CACHE_ID 0x410000c9, AUX_CTRL 0x06040000                               
+sc58x_init: registering device resources                                        
+sec init...                                                                     
+enabled                                                                         
+hw-breakpoint: Failed to enable monitor mode on CPU 0.                          
+ADI DMA2 Controller                                                             
+SCSI subsystem initialized                                                      
+usbcore: registered new interface driver usbfs                                  
+usbcore: registered new interface driver hub                                    
+usbcore: registered new device driver usb                                       
+GPIO line 504 (adau1962-rst) hogged as output/low                               
+GPIO line 505 (adau1962-rst) hogged as output/low                               
+i2c-adi-twi 31001400.twi: ADI on-chip I2C TWI Controller, regs_base@0f7d1b83    
+i2c-adi-twi 31001500.twi: ADI on-chip I2C TWI Controller, regs_base@5493db75    
+i2c-adi-twi 31001600.twi: ADI on-chip I2C TWI Controller, regs_base@e76f1cbb    
+media: Linux media interface: v0.10                                             
+Linux video capture interface: v2.00                                            
+pps_core: LinuxPPS API ver. 1 registered                                        
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@>
+PTP clock support registered                                                    
+Advanced Linux Sound Architecture Driver Initialized.                           
+clocksource: Switched to clocksource cs_gptimer                                 
+NET: Registered protocol family 2                                               
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes)         
+TCP established hash table entries: 2048 (order: 1, 8192 bytes)                 
+TCP bind hash table entries: 2048 (order: 1, 8192 bytes)                        
+TCP: Hash tables configured (established 2048 bind 2048)                        
+UDP hash table entries: 256 (order: 0, 4096 bytes)                              
+UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)                         
+NET: Registered protocol family 1                                               
+RPC: Registered named UNIX socket transport module.                             
+RPC: Registered udp transport module.                                           
+RPC: Registered tcp transport module.                                           
+RPC: Registered tcp NFSv4.1 backchannel transport module.                       
+hw perfevents: no interrupt-affinity property for /pmu, guessing.               
+hw perfevents: enabled with armv7_cortex_a5 PMU driver, 3 counters available    
+Initialise system trusted keyrings                                              
+workingset: timestamp_bits=30 max_order=16 bucket_order=0                       
+NFS: Registering the id_resolver key type                                       
+Key type id_resolver registered                                                 
+Key type id_legacy registered                                                   
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...                    
+jffs2: version 2.2. (NAND) �© 2001-2006 Red Hat, Inc.                           
+Key type asymmetric registered                                                  
+Asymmetric key parser 'x509' registered                                         
+io scheduler noop registered (default)                                          
+io scheduler mq-deadline registered                                             
+io scheduler kyber registered                                                   
+APP_STAT=0,RSCKPHY_STAT=0,LINK_CTRL_STATUS_REG2=10001                           
+sc58x-pcie 310b8000.pcie: Link training failed                                  
+sc58x-pcie 310b8000.pcie: PORT_LINK_DEBUG0 = c81c00, PORT_LINK_DEBUG1 = 8200000 
+sc58x-pcie: probe of 310b8000.pcie failed with error -110                       
+ADI serial driver                                                               
+adi-uart4.0: ttySC0 at MMIO 0x31003000 (irq = 21, base_baud = 7031250) is a ADI4
+console [ttySC0] enabled                                                        
+console [ttySC0] enabled                                                        
+bootconsole [earlycon0] disabled                                                
+bootconsole [earlycon0] disabled                                                
+loop: module loaded                                                             
+adi-spi3 31042000.spi: registered ADI SPI controller spi0                       
+m25p80 spi2.38: found w25q128, expected w25q32                                  
+m25p80 spi2.38: w25q128 (16384 Kbytes)                                          
+3 ofpart partitions found on MTD device spi2.38                                 
+Creating 3 MTD partitions on "spi2.38":                                         
+0x000000000000-0x000000080000 : "uboot (spi)"                                   
+0x000000080000-0x000000600000 : "kernel (spi)"                                  
+0x000000600000-0x000001000000 : "root file system (spi)"                        
+adi-spi3 31044000.spi: registered ADI SPI controller spi2                       
+libphy: Fixed MDIO Bus: probed                                                  
+CAN device driver interface                                                     
+adi-dwmac 3100c000.ethernet: PTP uses main clock                                
+adi-dwmac 3100c000.ethernet: no reset control found                             
+stmmac - user ID: 0x10, Synopsys ID: 0x37                                       
+adi-dwmac 3100c000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100c000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100c000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100c000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100c000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100c000.ethernet: COE Type 2                                         
+adi-dwmac 3100c000.ethernet: TX Checksum insertion supported                    
+adi-dwmac 3100c000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100c000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+libphy: stmmac: probed                                                          
+force_sf_dma_mode is ignored if force_thresh_dma_mode is set.                   
+adi-dwmac 3100e000.ethernet: PTP uses main clock                                
+adi-dwmac 3100e000.ethernet: no reset control found                             
+stmmac - user ID: 0x11, Synopsys ID: 0x37                                       
+adi-dwmac 3100e000.ethernet: Ring mode enabled                                  
+adi-dwmac 3100e000.ethernet: DMA HW capability register supported               
+adi-dwmac 3100e000.ethernet: Enhanced/Alternate descriptors                     
+adi-dwmac 3100e000.ethernet: Enabled extended descriptors                       
+adi-dwmac 3100e000.ethernet: RX Checksum Offload Engine supported               
+adi-dwmac 3100e000.ethernet: COE Type 2                                         
+adi-dwmac 3100e000.ethernet: Wake-Up On Lan supported                           
+adi-dwmac 3100e000.ethernet: Enable RX Mitigation via HW Watchdog Timer         
+libphy: stmmac: probed                                                          
+NS DP83848C 10/100 Mbps PHY stmmac-1:01: attached PHY driver [NS DP83848C 10/10)
+usbcore: registered new interface driver usb-storage                            
+musb-hdrc musb-hdrc.1.auto: MUSB HDRC host driver                               
+musb-hdrc musb-hdrc.1.auto: new USB bus registered, assigned bus number 1       
+hub 1-0:1.0: USB hub found                                                      
+hub 1-0:1.0: 1 port detected                                                    
+rtc rtc0: invalid alarm value: 1900-1-12 0:0:0                                  
+rtc-adi2 310c8000.rtc: registered as rtc0                                       
+i2c /dev entries driver                                                         
+ppi probe success                                                               
+adv7511 0-0039: adv7511 found @ 0x72 (31001400.twi)                             
+adi_display adi_display.0: v4l2 sub device registered                           
+adi_display adi_display.0: video device registered as: video0                   
+adi_wdt: initialized: timeout=20 sec (nowayout=0)                               
+Synopsys Designware Multimedia Card Interface Driver                            
+dwmmc_adi 31010000.mmc: IDMAC supports 32-bit address mode.                     
+dwmmc_adi 31010000.mmc: Using internal DMA controller.                          
+dwmmc_adi 31010000.mmc: Version ID is 270a                                      
+dwmmc_adi 31010000.mmc: DW MMC controller at irq 47,32 bit host data width,1024o
+mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 400000Hz, actual 39682)
+ADI hardware CRC crypto driver                                                  
+adi-hmac-crc 31001200.crc: initialized                                          
+adi-hmac-crc 31001300.crc: initialized                                          
+usbcore: registered new interface driver usbhid                                 
+usbhid: USB HID core driver                                                     
+usbcore: registered new interface driver r8712u                                 
+mmc_host mmc0: Bus speed (slot 0) = 50000000Hz (slot req 25000000Hz, actual 250)
+mmc0: new SD card at address b368                                               
+mmcblk0: mmc0:b368 SMI   1.86 GiB                                               
+adau1962 0-0004: busy to request reset-gpio 14                                  
+01,2a,a0,00                                                                     
+00,00,01,00                                                                     
+06,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,00,00,00                                                                     
+00,aa,aa,aa                                                                     
+sc5xx-i2s-dai 31002400.i2s: SPORT create success                                
+snd-sc5xx scb:sound: adau1962-hifi <-> 31002400.i2s mapping ok                  
+snd-sc5xx scb:sound: adau1977-hifi <-> 31002400.i2s mapping ok                  
+NET: Registered protocol family 10                                              
+Segment Routing with IPv6                                                       
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver                             
+NET: Registered protocol family 17                                              
+can: controller area network core (rev 20170425 abi 9)                          
+NET: Registered protocol family 29                                              
+can: raw protocol (rev 20170425)                                                
+can: broadcast manager protocol (rev 20170425 t)                                
+can: netlink gateway (rev 20170425) max_hops=1                                  
+Key type dns_resolver registered                                                
+ThumbEE CPU extension supported.                                                
+Loading compiled-in X.509 certificates                                          
+console [netcon0] enabled                                                       
+netconsole: network logging started                                             
+rtc-adi2 310c8000.rtc: setting system clock to 2019-08-12 15:04:31 UTC (1565622)
+TI DP83867 stmmac-0:00: attached PHY driver [TI DP83867] (mii_bus:phy_addr=stmm)
+adi-dwmac 3100c000.ethernet eth0: IEEE 1588-2008 Advanced Timestamp supported   
+adi-dwmac 3100c000.ethernet eth0: registered PTP clock                          
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready                              
+adi-dwmac 3100c000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx  
+IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready                         
+IP-Config: Complete:                                                            
+     device=eth0, hwaddr=02:80:ad:20:31:e8, ipaddr=10.100.4.50, mask=255.255.251
+     host=sc58x, domain=, nis-domain=(none)                                     
+     bootserver=10.100.4.174, rootserver=10.100.4.174, rootpath=                
+IP-Config: Gateway not on directly connected network                            
+cfg80211: Loading compiled-in X.509 certificates for regulatory database        
+cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'                      
+ALSA device list:                                                               
+  #0: sc5xx-asoc-card                                                           
+platform regulatory.0: Direct firmware load for regulatory.db failed with error2
+cfg80211: failed to load regulatory.db                                          
+VFS: Mounted root (nfs filesystem) on device 0:11.                              
+devtmpfs: mounted                                                               
+Freeing unused kernel memory: 1024K                                             
+INIT: version 2.88 booting                                                      
+Starting udev                                                                   
+udevd[792]: starting version 3.2.7                                              
+udevd[792]: specified group 'kvm' unknown                                       
+udevd[793]: starting eudev-3.2.7                                                
+udevd[793]: inotify_init failed: Function not implemented                       
+udevd[793]: error initializing inotify                                          
+ALSA: Restoring mixer settings...                                               
+No state is present for card sc5xxasoccard                                      
+Found hardware: "sc5xx-asoc-card" "" "" "" ""                                   
+Hardware is initialized using a generic method                                  
+INIT: Entering runlevel: 5rd sc5xxasoccard                                      
+Configuring network interfaces... RTNETLINK answers: File exists                
+ifup skipped for nfsroot interface eth0                                         
+run-parts: /etc/network/if-pre-up.d/nfsroot: exit status 1                      
+Starting system message bus: dbus.                                              
+Starting watchdog...                                                            
+Starting OpenBSD Secure Shell server: sshd                                      
+done.                                                                           
+Starting rpcbind daemon...done.                                                 
+Starting atd: OK                                                                
+Starting bluetooth: bluetoothd.                                                 
+Starting network benchmark server: netserverrandom: crng init done              
+.                                                                               
+Starting syslogd/klogd: done                                                    
+[ ok ]rting Avahi mDNS/DNS-SD Daemon: avahi-daemon                              
+Starting Lighttpd Web Server: lighttpd.                                         
+Starting crond: OK                                                              
+                                                                                
+                                                                                
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                        @@@@@@@                                    
+     @@@@@@@@                     @@@@@@@@@@                                    
+     @@@@@@@@                   @@@@@@@@@@@@                                    
+     @@@@@@@@               @@@@@@@@@@@@@@@@                                    
+     @@@@@@@@            @@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@                                    
+                                                                                
+        Analog Devices Yocto Distribution                                       
+                 www.analog.com                                                 
+              www.yoctoproject.org                                              
+                                                                                
+adsp-sc589-ezkit login: root                                                    
+Password:                                                                       
+root@adsp-sc589-ezkit:~# uname -a                                               
+Linux adsp-sc589-ezkit 4.16.0 #1 Mon Aug 12 14:05:13 UTC 2019 armv7l GNU/Linux  
+root@adsp-sc589-ezkit:~# cat /proc/version                                      
+Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Mon Aug 12 9
+root@adsp-sc589-ezkit:~# echo 466 > /sys/class/gpio/export                      
+root@adsp-sc589-ezkit:~# echo low > /sys/class/gpio/gpio466/direction           
+root@adsp-sc589-ezkit:~# echo 469 > /sys/class/gpio/export                      
+root@adsp-sc589-ezkit:~# echo low > /sys/class/gpio/gpio469/direction           
+root@adsp-sc589-ezkit:~#  ls                                                    
+adv7842.yuv                                                                     
+root@adsp-sc589-ezkit:~# v4l2_video_display -F adv7842.yuv                      
+enum outputs                                                                    
+output[0]: HDMI                                                                 
+set output to 0: support dv_timings                                             
+dv_timings: progressive,width=1280,height=720                                   
+hfrontporch=110,hsync=40,hbackporch=220,vfrontporch=5,vsync=5,vbackporch=20     
+enum formats                                                                    
+format[0]: UYVY 4:2:2                                                           
+negotiated formats: 1280x720                                                    
+field order: progressive                                                        
+size = 1843200                                                                  
+bytesperline = 2560                                                             
+pixelformat: UYVY                                                               
+request 3 buffers                                                               
+open image file 'adv7842.yuv' success                                           
+------------[ cut here ]------------                                            
+WARNING: CPU: 0 PID: 1001 at /home/test/yocto/build/tmp/work-shared/adsp-sc589-4
+Modules linked in:                                                              
+CPU: 0 PID: 1001 Comm: v4l2_video_disp Not tainted 4.16.0 #1                    
+Hardware name: SC58x-EZKIT (Device Tree Support)                                
+[<c010debc>] (unwind_backtrace) from [<c010b7a0>] (show_stack+0x10/0x14)        
+[<c010b7a0>] (show_stack) from [<c011b4b8>] (__warn+0xd8/0xf0)                  
+[<c011b4b8>] (__warn) from [<c011b510>] (warn_slowpath_null+0x40/0x48)          
+[<c011b510>] (warn_slowpath_null) from [<c04a003c>] (vb2_warn_zero_bytesused.pa)
+[<c04a003c>] (vb2_warn_zero_bytesused.part.8) from [<c04a04a4>] (__fill_vb2_buf)
+[<c04a04a4>] (__fill_vb2_buffer) from [<c049cbb4>] (__buf_prepare+0x140/0x19c)  
+[<c049cbb4>] (__buf_prepare) from [<c049cd2c>] (vb2_core_qbuf+0x58/0x1ec)       
+[<c049cd2c>] (vb2_core_qbuf) from [<c04850c4>] (__video_do_ioctl+0x254/0x30c)   
+[<c04850c4>] (__video_do_ioctl) from [<c0484b20>] (video_usercopy+0x1ec/0x530)  
+[<c0484b20>] (video_usercopy) from [<c0482174>] (v4l2_ioctl+0x8c/0xdc)          
+[<c0482174>] (v4l2_ioctl) from [<c01cd73c>] (do_vfs_ioctl+0xac/0x878)           
+[<c01cd73c>] (do_vfs_ioctl) from [<c01cdf3c>] (SyS_ioctl+0x34/0x60)             
+[<c01cdf3c>] (SyS_ioctl) from [<c0101000>] (ret_fast_syscall+0x0/0x54)          
+Exception stack(0xcd21ffa8 to 0xcd21fff0)                                       
+ffa0:                   00000000 00000003 00000003 c044560f beea0b90 00495158   
+ffc0: 00000000 00000003 00495158 00000036 00000000 00000001 00493024 beea0b50   
+ffe0: 00492f94 beea0b14 00481f7b b6f6f0f8                                       
+---[ end trace 977eb7b30af7e69c ]---                                            
+use of bytesused == 0 is deprecated and will be removed in the future,          
+use the actual size instead.                                                    
+stream on success

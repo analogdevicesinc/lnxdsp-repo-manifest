@@ -1,0 +1,57 @@
+test@app-lwl:~$ cd /lib/modules
+test@app-lwl:/lib/modules$ ls
+4.15.0-20-generic
+test@app-lwl:/lib/modules$ cd 4.15.0-20-generic/
+test@app-lwl:/lib/modules/4.15.0-20-generic$ cd kernel/drivers/usb/misc
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$ ls
+adutux.ko          emi62.ko            legousbtower.ko    usb4604.ko
+appledisplay.ko    ezusb.ko            lvstest.ko         usblcd.ko
+chaoskey.ko        ftdi-elan.ko        rio500.ko          usbsevseg.ko
+cypress_cy7c63.ko  idmouse.ko          sisusbvga          usbtest.ko
+cytherm.ko         iowarrior.ko        trancevibrator.ko  uss720.ko
+ehset.ko           isight_firmware.ko  usb251xb.ko        yurex.ko
+emi26.ko           ldusb.ko            usb3503.ko
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$ modprobe usbtest
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$  lsmod | grep usbtest
+usbtest                36864  0
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$ lsusb|grep -i "Gadget Zero"|awk '{print $2" "$4}'
+001 030:
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$ sudo ./testusb -D /dev/bus/usb/001/030 -t1
+[sudo] password for test: 
+sudo: ./testusb: command not found
+test@app-lwl:/lib/modules/4.15.0-20-generic/kernel/drivers/usb/misc$ cd
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t1
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 1,    0.203212 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t3
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 3,    0.185052 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t5
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 5,    1.527852 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t7
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 7,    1.523306 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t2
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 2,    0.125108 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t4
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 4,    0.125121 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t6
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 6,    0.626708 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t8
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 8,    0.626576 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t14 -c 15000 -s 256  -v 1
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 14,    3.774305 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t10
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 10,    3.253165 secs
+test@app-lwl:~$ sudo ./testusb -D /dev/bus/usb/001/030 -t9
+unknown speed	/dev/bus/usb/001/030	0
+/dev/bus/usb/001/030 test 9,    1.940289 secs
+test@app-lwl:~$ 
+

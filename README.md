@@ -7,13 +7,16 @@ sudo apt-get update
 sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm u-boot-tools openssl
 ```
 
-Set up SSH access to Timesys servers ( from [here](https://src.timesys.com/help/ssh/README#generating-a-new-ssh-key-pair)):
+Set up git user name and account and save password:
 ```
-ssh-keygen -o -t rsa -b 4096 -C "example@email.com"
-cat ~/.ssh/id_rsa.pub 
-
-Paste output in to:
-https://src.timesys.com/profile/keys
+change to your own email:
+$ git config --global user.email "test@analog.com"
+  
+Change to your own name:
+$ git config --global user.name "test"
+  
+Save your password:
+$ git config --global credential.helper store
 ```
 
 # II. Build info
@@ -35,7 +38,6 @@ meta-yocto-bsp       = "HEAD:50f33d3bfebcbfb1538d932fb487cfd789872026"
 meta-oe              = "HEAD:4cd3a39f22a2712bfa8fc657d09fe2c7765a4005"
 meta-adi-adsp-sc5xx  
 meta-adi-external-toolchain = "master:7ee07ffb82b93c93884e68063307ea6041a244b2"
-meta-timesys         = "HEAD:8a0d9405dd3083926ced6be92fc8d940c0052490"
 ```
 
 # III. Initial Setup
@@ -61,17 +63,32 @@ Download various meta layers from the manifest:
 PATH=${PATH}:~/bin
 mkdir -p /analogdevices/yocto
 cd /analogdevices/yocto
-repo init -u git@src.timesys.com:services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi.git -b manifest
+repo init -u https://bitbucket.analog.com/scm/dte-ap/yocto-adi-manifest.git
 repo sync
 ```
 
 # IV. Configuring Layers
 -----------------
 ```
-source sources/poky/oe-init-build-env build
+source setup-environment -m adsp-sc589-ezkit
 ```
 
-Set conf/bblayers.conf to the following. The meta-adi-external-toolchain line can be omitted if not using external toolchains:
+Here is usage of setup-environment:
+
+```
+- To create a new Yocto build directory, the order can't be changed, -m firstly -b secondly:
+  $ source setup-environment -m adsp-sc589-ezkit -b build 
+- To create a new Yocto build directory, the build dir is 'build' by default if there is no -b <build-dir> provided:
+  $ source setup-environment -m adsp-sc589-ezkit
+- To use an existing Yocto build directory:
+  $ source setup-environment -b builddir
+- Reuse existing 'build' folder.
+  $ source setup-environment
+- To get the help information
+  $ source setup-environment -h
+``` 
+
+It will set conf/bblayers.conf to following. The meta-adi-external-toolchain line can be omitted if not using external toolchains:
 
 ```
 # POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
@@ -91,7 +108,6 @@ BBLAYERS ?= " \
   ${BSPDIR}/sources/meta-openembedded/meta-networking \
   ${BSPDIR}/sources/meta-adi/meta-adi-adsp-sc5xx \
   ${BSPDIR}/sources/meta-adi/meta-adi-external-toolchain \
-  ${BSPDIR}/sources/meta-timesys \
 "
 ```
 
@@ -328,4 +344,4 @@ Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Tue May 7 17
 
 # VII. Testing
 -----------------
-Go to [here](https://src.timesys.com/services/analog-devices/analog-devices-yocto-bsp-porting/meta-adi/tree/manifest/tests/TESTING.md)
+Go to tests folder above saving some test results for sc589. 
