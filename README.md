@@ -342,6 +342,6 @@ root@adsp-sc589-ezkit:~# cat /proc/version
 Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Tue May 7 17:57:54 UTC 2019
 ```
 
-# VII. Testing
+# VII. Licensing
 -----------------
-Go to tests folder above saving some test results for sc589. 
+Please see the file LICENSE.md for more details regarding the licensing for this repository.
