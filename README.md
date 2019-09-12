@@ -63,7 +63,7 @@ Download various meta layers from the manifest:
 PATH=${PATH}:~/bin
 mkdir -p /analogdevices/yocto
 cd /analogdevices/yocto
-repo init -u https://bitbucket.analog.com/scm/dte-ap/yocto-adi-manifest.git
+repo init -u https://bitbucket.analog.com/scm/dte/yocto-adi-manifest.git -b develop/yocto-1.0.0
 repo sync
 ```
 
