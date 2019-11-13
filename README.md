@@ -1,4 +1,3 @@
-
 # I. Host preparation:
 ---------------
 From a suitable Linux distribution, install Yocto prerequisites:
@@ -57,12 +56,11 @@ chmod a+x ~/bin/repo
 Download the BSP
 ---------------------
 
-Download various meta layers from the manifest:
-
+Download various meta layers from the manifest: (Note: make sure your states are not root user now.)
 ```
 PATH=${PATH}:~/bin
-mkdir -p /analogdevices/yocto
-cd /analogdevices/yocto
+mkdir -p ~/analogdevices/yocto
+cd ~/analogdevices/yocto
 repo init -u https://bitbucket.analog.com/scm/dte/yocto-adi-manifest.git -b develop/yocto-1.0.0
 repo sync
 ```
@@ -207,52 +205,123 @@ From the build directory, build an image.  Possible types are: adsp-sc58x-minima
 bitbake adsp-sc58x-minimal
 ```
 
+# VI. Configuring NFS and TFTP  
+------------------
+## Install TFTP server
+```
+$ sudo apt-get install tftpd-hpa -y
+```
+Change TFTP default directory to /tftpboot from /etc/default/tftpd-hpa.
+```
+sudo vi /etc/default/tftpd-hpa
 
-# VI. Deploying
+#add following commands 
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/tftpboot"
+TFTP_ADDRESS="0.0.0.0:69"
+TFTP_OPTIONS="--secure"
+
+$ sudo mkdir /tftpboot
+$ sudo chmod 777 /tftpboot
+$ sudo service tftpd-hpa restart
+```
+You should add the following commands into /etc/rc.local files so that tftp can auto-restart after you 
+reboot your comport.
+```
+$ sudo vi /etc/rc.local
+
+#add following commands
+service tftpd-hpa restart
+
+$ sudo chmod 755 tftpd-hpa
+```
+## Install NFS server
+```
+$ sudo apt-get install nfs-kernel-server
+$ sudo vi /etc/exports
+
+#Add following commands
+/romfs *(rw,sync,no_root_squash,no_subtree_check)
+
+$ sudo mkdir /romfs/
+$ sudo chmod 777 /romfs/
+$ sudo service nfs-kernel-server start
+```
+
+# VII. Deploying
 -----------------
 
-Prepare the NFS and TFTP directories:
+## Prepare the NFS and TFTP directories:
 ```
-cd <Yocto Directory>/build/tmp/deploy/images/adsp-sc589-ezkit
+cd ~/analogdevices/yocto/build/tmp/deploy/images/adsp-sc589-ezkit
 
-export tftp=<TFTP DIRECTORY>
-export rootfs=<ROOTFS DIRECTORY>
+cp u-boot.ldr /tftpboot/u-boot.ldr
+cp u-boot /tftpboot/u-boot
+cp zImage /tftpboot/zImage
+cp sc589-ezkit.dtb /tftpboot/sc589-ezkit.dtb
 
-cp u-boot.ldr ${tftp}/u-boot.ldr
-cp u-boot ${tftp}/u-boot
-cp zImage ${tftp}/zImage
-cp sc589-ezkit.dtb ${tftp}/sc589-ezkit.dtb
-
-sudo rm -rf ${rootfs}
-sudo mkdir ${rootfs}
-sudo chmod 777 ${rootfs}
+sudo rm -rf /romfs/*
 
 #Minimal image
-sudo tar -xvf adsp-sc58x-minimal-adsp-sc589-ezkit.tar.xz -C ${rootfs}
+sudo tar -xvf adsp-sc58x-minimal-adsp-sc589-ezkit.tar.xz -C /romfs/
 
 #Full image
-sudo tar -xvf adsp-sc58x-full-adsp-sc589-ezkit.tar.xz -C ${rootfs}
+sudo tar -xvf adsp-sc58x-full-adsp-sc589-ezkit.tar.xz -C /romfs/
 
 #... etc images
 
 ```
+## Flash U-Boot to the SPI Flash
+The output from u-Boot is transmitted to the host PC using the micro USB cable connected from the Host PC to the USB-to-UART port of the EZ-Kit. The following instructions in this guide use the minicom application to interact with the serial port.
 
-Launch openocd with ICE-1000 connected:
+### Config minicom:
+Open a new terminal and set up minicom to the ADSP-SC5xx serial console. Execute the following commands on the host PC:
 ```
+$ sudo minicom -s
+
+            +-----[configuration]------+
+            | Filenames and paths      |
+            | File transfer protocols  |
+            | Serial port setup        |
+            | Modem and dialing        |
+            | Screen and keyboard      |
+            | Save setup as dfl        |
+            | Save setup as..          |
+            | Exit                     |
+            | Exit from Minicom        |
+            +--------------------------+
+
+
+# Select Serial port setup
+
+     Set Serial Device to /dev/ttyUSB0
+
+     Set Bps/Par/Bits to 57600 8N1
+
+     Set Hardware Flow Control to No
+
+     Close the Serial port setup option by press Esc
+
+ Select Save setup as dfl
+
+ Select Exit
+
+$ sudo minicom
+```
+### Loading U-Boot With GDB
+Launch openocd with ICE-1000 connected and run following commands in another new terminal:
+```
+cd /opt/analog/cces/2.8.3/ARM/openocd/share/openocd/scripts
 sudo /opt/analog/cces/2.8.3/ARM/openocd/bin/openocd -f interface/ice1000.cfg -f target/adspsc58x.cfg
 ```
-
 Launch gdb in another terminal:
 ```
-cd /opt/analog/cces-linux-add-in/1.3.0/uboot-sc5xx-1.3.0/bin
-arm-none-eabi-gdb u-boot-sc589-ezkit
-```
+$ cd ~/analogdevices/yocto/build/tmp/work/adsp_sc589_ezkit-poky-linux-gnueabi/u-boot-adi/1.0+gitAUTOINC+0a9b06673e-r0/build/  
+$ arm-none-eabi-gdb u-boot
 
-Load u-boot through GDB
-```
 (gdb) target remote :3333
 
-(gdb) load init-sc589-ezkit.elf
+(gdb) load arch/arm/cpu/armv7/sc58x/init.elf
           Loading section .text, size 0x580 lma 0x20080000
           Start address 0x20080024, load size 1408
           Transfer rate: 25 KB/sec, 1408 bytes/write.
@@ -261,7 +330,7 @@ Load u-boot through GDB
           ^C
           Program received signal SIGINT, Interrupt.
           0x0000546e in ?? ()
-(gdb) load <TFTP DIRECTORY>/u-boot
+(gdb) load u-boot
           Loading section .text, size 0x315ac lma 0xc2200000
           Loading section .rodata, size 0xa605 lma 0xc22315ac
           Loading section .hash, size 0x18 lma 0xc223bbb4
@@ -281,39 +350,83 @@ Load u-boot through GDB
           Continuing.
 ```
 
-Flash U-Boot to the SPI Flash
+You should see u-boot running in the minicom:
 ```
-sc # env default -a
-sc # editenv ubootfile
-sc # editenv serverip
-sc # dhcp
-        Speed: 1000, full duplex
-        BOOTP broadcast 1
-        BOOTP broadcast 2
-        DHCP client bound to address 192.168.1.33 (563 ms)
+U-Boot 2015.01 ADI-1.3.1 (Oct 25 2019 - 03:07:33)
+
+CPU:   ADSP ADSP-SC589-0.0 (Detected Rev: 1.1) (spi flash boot)
+VCO: 450 MHz, Cclk0: 450 MHz, Sclk0: 112.500 MHz, Sclk1: 112.500 MHz, DCLK: 225 MHz
+OCLK: 150 MHz
+       Watchdog enabled
+I2C:   ready
+DRAM:  224 MiB
+MMC:   SC5XX SDH: 0
+SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+In:    serial
+Out:   serial
+Err:   serial
+other init
+Net:   dwmac.3100c000
+Hit any key to stop autoboot:  5	
+```
+Set your serverip and ipaddr to the same domain when you connect the board with your HOST PC directly:
+```
+sc # set ipaddr <BOARD_IP>
+sc # set serverip <HOST_IP>
 
 
-sc # run update
-```
+such as:
+	sc # set ipaddr 10.100.4.50
+	sc # set serverip 10.100.4.174
 
-Unplug ICE-1000 from host's USB port, finalize and save boot arguments, and run nfsboot to boot from NFS:
-```
-sc # sleep 10 && reset
-sc # env default -a
-sc # editenv ubootfile
-sc # editenv serverip
-sc # editenv dtbfile
-sc # editenv nfsfile
-sc # editenv rootpath
+
 sc # saveenv
+
+# Write the u-boot.ldr in /tftpboot to flash via command "run update"
+sc # run update
+	Speed: 1000, full duplex
+	Using dwmac.3100c000 device
+	TFTP from server 10.100.4.174; our IP address is 10.100.4.50
+	Filename 'u-boot.ldr'.
+	Load address: 0x82000000
+	Loading: ########################
+			1.5 MiB/s
+	done
+	Bytes transferred = 346020 (547a4 hex)
+	SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+	SF: 524288 bytes @ 0x0 Erased: OK
+	SF: 346020 bytes @ 0x0 Written: OK
+
+sc # run nfsboot
+```
+If your network cable and your computer are in the same local area network, running following commands:
+```
+sc # set serverip $(HOST IP ADDRESS) 
 sc # dhcp
+sc # saveenv
+
+# Write the u-boot.ldr in /tftpboot to flash via command "run update"
+sc # run update
+	Speed: 1000, full duplex
+	Using dwmac.3100c000 device
+	TFTP from server 10.99.24.170; our IP address is 10.99.24.127
+	Filename 'u-boot.ldr'.
+	Load address: 0x82000000
+	Loading: ########################
+			1.5 MiB/s
+	done
+	Bytes transferred = 346020 (547a4 hex)
+	SF: Detected W25Q128BV with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+	SF: 524288 bytes @ 0x0 Erased: OK
+	SF: 346020 bytes @ 0x0 Written: OK
+
 sc # run nfsboot
 ```
 
 You should eventually see a log in prompt if the kernel boot was successful:
 ```
      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@     
+     @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
      @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@
      @@@@@@@@        @@@@@@@@@@@@@@@@@@@@@@@
      @@@@@@@@            @@@@@@@@@@@@@@@@@@@
@@ -329,11 +442,11 @@ You should eventually see a log in prompt if the kernel boot was successful:
      @@@@@@@@     @@@@@@@@@@@@@@@@@@@@@@@@@@
      @@@@@@@@  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@
      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-     
+
         Analog Devices Yocto Distribution
                  www.analog.com
               www.yoctoproject.org
-     
+
 adsp-sc589-ezkit login: root
 Password: adi
 root@adsp-sc589-ezkit:~# uname -a
@@ -341,7 +454,6 @@ Linux adsp-sc589-ezkit 4.16.0 #1 Tue May 7 17:57:54 UTC 2019 armv7l GNU/Linux
 root@adsp-sc589-ezkit:~# cat /proc/version
 Linux version 4.16.0 (oe-user@oe-host) (gcc version 8.2.0 (GCC)) #1 Tue May 7 17:57:54 UTC 2019
 ```
-
-# VII. Licensing
------------------
+# VIII. Licensing
+-----------------------------
 Please see the file LICENSE.md for more details regarding the licensing for this repository.
