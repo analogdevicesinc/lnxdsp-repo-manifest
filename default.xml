@@ -9,7 +9,7 @@
 
   <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky"/> <!-- thud revision -->
   <project remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- thud revision -->
-  <project remote="adigithub" revision="develop/yocto-1.0.0" name="lnxdsp-meta-adi" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="develop/yocto-1.0.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
   <project remote="adigithub" revision="develop/yocto-1.0.0" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
