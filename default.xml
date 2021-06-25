@@ -7,10 +7,10 @@
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
 
-  <project remote="yocto" revision="50f33d3bfebcbfb1538d932fb487cfd789872026" name="poky" path="sources/poky"/> <!-- thud revision -->
-  <project remote="oe" revision="4cd3a39f22a2712bfa8fc657d09fe2c7765a4005" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- thud revision -->
-  <project remote="adigithub" revision="release/yocto-1.0.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
-  <project remote="adigithub" revision="release/yocto-1.0.0" name="lnxdsp-scripts" path="sources">
+  <project remote="yocto" revision="6ebb33bdaccaeadff0c85aab27acf35723df00d8" name="poky" path="sources/poky"/> <!-- dunfell revision -->
+  <project remote="oe" revision="11eae114522a6befa06c7f4021a83bc016133543" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- dunfell revision -->
+  <project remote="adigithub" revision="develop/g-xp" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="develop/g-xp" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
 
