@@ -9,8 +9,8 @@
 
   <project remote="yocto" revision="6ebb33bdaccaeadff0c85aab27acf35723df00d8" name="poky" path="sources/poky"/> <!-- dunfell revision -->
   <project remote="oe" revision="11eae114522a6befa06c7f4021a83bc016133543" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- dunfell revision -->
-  <project remote="adigithub" revision="develop/g-xp" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
-  <project remote="adigithub" revision="develop/g-xp" name="lnxdsp-scripts" path="sources">
+  <project remote="adigithub" revision="develop/a2b-linux" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="develop/a2b-linux" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
 
