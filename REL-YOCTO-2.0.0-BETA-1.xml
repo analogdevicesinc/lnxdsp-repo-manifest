@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <default sync-j="1"/>
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
+
+  <project remote="yocto" revision="6ebb33bdaccaeadff0c85aab27acf35723df00d8" name="poky" path="sources/poky"/> <!-- dunfell revision -->
+  <project remote="oe" revision="11eae114522a6befa06c7f4021a83bc016133543" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- dunfell revision -->
+  <project remote="adigithub" revision="da9268ea7a19bb4a740c3392d42fb059840d9412" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="130d7a846aae7539eafb2ea22c44f2d0237dc39e" name="lnxdsp-scripts" path="sources">
+	  <linkfile dest="setup-environment" src="setup-environment"/>
+  </project>>
+
+</manifest>
