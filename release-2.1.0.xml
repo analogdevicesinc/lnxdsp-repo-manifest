@@ -11,8 +11,8 @@
   <project remote="oe" revision="11eae114522a6befa06c7f4021a83bc016133543" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- dunfell revision -->
   <project remote="yocto" revision="d21ded082c27959c8d617fd18da60b236d2ec62b" name="meta-arm" path="sources/meta-arm"/> <!-- dunfell revision -->
 
-  <project remote="adigithub" revision="develop/2.1.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
-  <project remote="adigithub" revision="develop/2.1.0" name="lnxdsp-scripts" path="sources">
+  <project remote="adigithub" revision="release/2.1.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="release/2.1.0" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
 
