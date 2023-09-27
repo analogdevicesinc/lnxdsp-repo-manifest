@@ -15,5 +15,6 @@
   <project remote="adigithub" revision="develop/yocto-3.1.0" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
+  <project remote="adigithub" revision="develop/yocto-3.1.0" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
 
 </manifest>
