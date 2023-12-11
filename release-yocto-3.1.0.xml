@@ -11,10 +11,10 @@
   <project remote="oe" revision="278ec081a64e6a7679d6def550101158126cd935" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- kirkstone revision -->
   <project remote="yocto" revision="bafd1d013c2470bcec123ba4eb8232ab879b2660" name="meta-arm" path="sources/meta-arm"/> <!-- kirkstone revision -->
 
-  <project remote="adigithub" revision="develop/yocto-3.1.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
-  <project remote="adigithub" revision="develop/yocto-3.1.0" name="lnxdsp-scripts" path="sources">
+  <project remote="adigithub" revision="release/yocto-3.1.0" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="release/yocto-3.1.0" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
-  <project remote="adigithub" revision="develop/yocto-3.1.0" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
+  <project remote="adigithub" revision="release/yocto-3.1.0" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
 
 </manifest>
