@@ -11,7 +11,7 @@
   <project remote="oe" revision="730e44900a0a86265bad93a16b5a5ff344a07266" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- kirkstone revision -->
   <project remote="yocto" revision="b187fb9232ca0a6b5f8f90b4715958546fc41d73" name="meta-arm" path="sources/meta-arm"/> <!-- kirkstone revision -->
 
-  <project remote="adigithub" revision="refs/tags/3.1.0-rel" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
+  <project remote="adigithub" revision="refs/tags/3.1.1-rel" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
   <project remote="adigithub" revision="refs/tags/3.1.0-rel" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
