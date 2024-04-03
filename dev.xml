@@ -7,12 +7,12 @@
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
 
-  <project remote="yocto" revision="54af8c5e80ebf63707ef4e51cc9d374f716da603" name="poky" path="sources/poky"/> <!-- kirkstone revision -->
-  <project remote="oe" revision="730e44900a0a86265bad93a16b5a5ff344a07266" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- kirkstone revision -->
-  <project remote="yocto" revision="b187fb9232ca0a6b5f8f90b4715958546fc41d73" name="meta-arm" path="sources/meta-arm"/> <!-- kirkstone revision -->
+  <project remote="yocto" revision="30d88a20432d2ddca555c9b6690450b260e523ec" name="poky" path="sources/poky"/> <!-- scarthgap revision -->
+  <project remote="oe" revision="8e540cab434f1106fa3e2f774190a966100ac438" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- master revision -->
+  <project remote="yocto" revision="8d308aac029f3c5cd08100f2978d0c28bed4332d" name="meta-arm" path="sources/meta-arm"/> <!-- master revision -->
 
   <project remote="adigithub" revision="dev" name="lnxdsp-adi-meta" path="sources/meta-adi"/>
-  <project remote="adigithub" revision="dev" name="lnxdsp-scripts" path="sources">
+  <project remote="adigithub" revision="refs/tags/3.1.0-rel" name="lnxdsp-scripts" path="sources">
 	  <linkfile dest="setup-environment" src="setup-environment"/>
   </project>>
   <project remote="adigithub" revision="dev" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
