@@ -6,6 +6,7 @@
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
+  <remote fetch="https://github.com/xilinx" name="xilinxgithub"/>
 
   <project remote="yocto" revision="68f9a4b73d17839e0ec1f12a31fc1d42331cc42f" name="poky" path="sources/poky"/> <!-- scarthgap revision -->
   <project remote="oe" revision="6de0ab744341ad61b0661aa28d78dc6767ce0786" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- scarthgap revision -->
@@ -16,5 +17,7 @@
   </project>
 
   <project remote="adigithub" revision="dev" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
+
+  <project remote="xilinxgithub" revision="master" name="meta-jupyter" path="sources/meta-xilinx"/>
 
 </manifest>
