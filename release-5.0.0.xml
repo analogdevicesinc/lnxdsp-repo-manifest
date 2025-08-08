@@ -11,10 +11,10 @@
   <project remote="oe" revision="6de0ab744341ad61b0661aa28d78dc6767ce0786" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- scarthgap revision -->
   <project remote="yocto" revision="1200a59db6a484618bd42ecb1d7d1e3593eb7708" name="meta-arm" path="sources/meta-arm"/> <!-- master revision -->
 
-  <project remote="adigithub" revision="rc1-5.0.0" name="lnxdsp-adi-meta" path="sources/meta-adi">
+  <project remote="adigithub" revision="refs/tags/5.0.0-rel" name="lnxdsp-adi-meta" path="sources/meta-adi">
   	<linkfile src="tools/setup-environment" dest="setup-environment"/>
   </project>
 
-  <project remote="adigithub" revision="rc1-5.0.0" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
+  <project remote="adigithub" revision="refs/tags/5.0.0-rel" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
 
 </manifest>
