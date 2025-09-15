@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <default sync-j="1"/>
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="https://github.com/openembedded" name="oe"/>
+  <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
+
+  <project remote="yocto" revision="ec220ae083dba35c279192b2249ad03fe238446e" name="poky" path="sources/poky"/> <!-- scarthgap revision -->
+  <project remote="oe" revision="b9fb6556a3c8a3e477dce334205b658cb79ad501" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- scarthgap revision -->
+  <project remote="yocto" revision="8e0f8af90fefb03f08cd2228cde7a89902a6b37c" name="meta-arm" path="sources/meta-arm"/> <!-- master revision -->
+
+  <project remote="adigithub" revision="8828c5968b4973746f403cbf3f680d9f173a1dd9" name="lnxdsp-adi-meta" path="sources/meta-adi">
+  	<linkfile src="tools/setup-environment" dest="setup-environment"/>
+  </project>
+
+  <project remote="adigithub" revision="refs/tags/5.0.0-rel" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
+
+</manifest>
