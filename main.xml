@@ -15,6 +15,4 @@
   	<linkfile src="tools/setup-environment" dest="setup-environment"/>
   </project>
 
-  <project remote="adigithub" revision="main" name="lnxdsp-adi-security-meta" path="sources/meta-adi-security"/>
-
 </manifest>
