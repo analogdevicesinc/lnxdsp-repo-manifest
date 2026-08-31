@@ -11,7 +11,7 @@
   <project remote="oe" revision="6de0ab744341ad61b0661aa28d78dc6767ce0786" name="meta-openembedded" path="sources/meta-openembedded"/> <!-- scarthgap revision -->
   <project remote="yocto" revision="1200a59db6a484618bd42ecb1d7d1e3593eb7708" name="meta-arm" path="sources/meta-arm"/> <!-- master revision -->
 
-  <project remote="adigithub" revision="refs/tags/5.0.0-rel" name="lnxdsp-adi-meta" path="sources/meta-adi">
+  <project remote="adigithub" revision="e4cc8d8336eb710969a218ef4917976097bfc3f1" name="lnxdsp-adi-meta" path="sources/meta-adi">
   	<linkfile src="tools/setup-environment" dest="setup-environment"/>
   </project>
 
