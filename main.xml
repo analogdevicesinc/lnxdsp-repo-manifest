@@ -7,10 +7,12 @@
   <remote fetch="https://github.com/openembedded" name="oe"/>
   <remote fetch="https://github.com/analogdevicesinc" name="adigithub"/>
 
-  <!-- yocto scarthgap 5.0.18 -->
-  <project remote="yocto" revision="44dcf08572ce391d7c0df4f8c7510af5e096baca" name="poky" path="sources/poky"/>
-  <project remote="oe" revision="b5874ea07d69919d9b40d59f2c2f0bbd24bc3259" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="yocto" revision="0a4b911d9fd63ab29c4532a907fae3282dbdcfe4" name="meta-arm" path="sources/meta-arm"/>
+  <!-- yocto wrynose 6.0.3 -->
+  <project remote="oe"    revision="0ad6c1c34a5e07a5f8dd66ab248c1e7b37b69fa9" name="bitbake" path="sources/bitbake"/>
+  <project remote="oe"    revision="9da814ca3685ada3fce46b8987f04ed3d57247b7" name="openembedded-core" path="sources/oe-core"/>
+  <project remote="yocto" revision="1b132647002eea43a2c7a7f857f63f42dacbc26c" name="meta-yocto" path="sources/meta-yocto"/>
+  <project remote="oe"    revision="14282a02be9c74a1276a7cda7d6c89e054699a11" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="yocto" revision="9dab8bdd4991973faa6dfc5b3c607f4c09cc1cdb" name="meta-arm" path="sources/meta-arm"/>
 
   <project remote="adigithub" revision="main" name="lnxdsp-adi-meta" path="sources/meta-adi">
   	<linkfile src="tools/setup-environment" dest="setup-environment"/>
