@@ -1,0 +1,15 @@
+# kas equivalent of main.xml:
+#   KAS_MACHINE=adsp-sc598-som-ezkit kas build kas/main.yml
+
+header:
+  version: 14
+  includes:
+    - kas/wrynose.yml
+
+repos:
+  meta-adi:
+    url: https://github.com/analogdevicesinc/lnxdsp-adi-meta.git
+    branch: main
+    layers:
+      meta-adi-adsp-sc5xx:
+      meta-adi-adsp-sc5xx-security:
